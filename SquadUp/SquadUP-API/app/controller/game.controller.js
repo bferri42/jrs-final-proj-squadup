@@ -1,37 +1,37 @@
 const db = require("../index");
 
-// exports.getRouteById = (req, res) => {
-//   const id = req.params.id;
-//   //const {id} = req.params; also works
-//   const query = `
-//         SELECT id, url
-//         FROM url.urls
-//              WHERE id = ?
-//              ;`;
-//   const placeholders = [id];
-//   // tell the daatabase to execute that script
-//   db.query(query, placeholders, (err, results) => {
-//     // this code will exectue when the database responds
-//     // 3 possible cases: 404 - Nothing Found
-//     //                       - whole error
-//     //                       - Success
-//     if (err) {
-//       res.status(500).send({
-//         message: "There was an error getting your route.",
-//         error: err,
-//       });
-//     } else if (results.length == 0) {
-//       res.status(404).send({
-//         message: "No route found",
-//       });
-//     } else {
-//       res.send({
-//         message: "Here are your results",
-//         url: results[0],
-//       });
-//     }
-//   });
-// };
+exports.getUsersByfavGame = (req, res) => {
+  const id = req.params.id;
+  //const {id} = req.params; also works
+  const query = `
+        SELECT id, favGame
+        FROM squadup.game
+             WHERE id = ?
+             ;`;
+  const placeholders = [id];
+  // tell the daatabase to execute that script
+  db.query(query, placeholders, (err, results) => {
+    // this code will exectue when the database responds
+    // 3 possible cases: 404 - Nothing Found
+    //                       - whole error
+    //                       - Success
+    if (err) {
+      res.status(500).send({
+        message: "There was an error getting your users.",
+        error: err,
+      });
+    } else if (results.length == 0) {
+      res.status(404).send({
+        message: "No users found",
+      });
+    } else {
+      res.send({
+        message: "Here are your results",
+        url: results[0],
+      });
+    }
+  });
+};
 
 // exports.getAllRoutes = (req, res) => {
 //   const query = `SELECT * FROM url.urls;`;

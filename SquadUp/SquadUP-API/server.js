@@ -14,8 +14,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 require("./app/index");
-require("./app/routes/url-routes")(app);
-require("./app/routes/user-routes")(app);
+require("./app/routes/user.routes")(app);
+require("./app/routes/game.routes")(app);
 
 
 const PORT = process.env.PORT || 8080;

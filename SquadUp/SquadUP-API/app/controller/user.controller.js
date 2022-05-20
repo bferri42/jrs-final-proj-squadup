@@ -5,6 +5,35 @@ const { v4: uuid } = require('uuid');
 const saltRounds = 10;
 
 
+exports.getAllUsers = (req, res) => {
+  const query = `SELECT * FROM squadup.user;`;
+  // tell the database to execute that script
+  db.query(query, (err, results) => {
+    // this code will execute when the db responds
+    // return appropriate response to the client
+    // 3 possilbe cases
+    // 1 whole error
+    // 2 404 not found
+    // 3 success
+    if (err) {
+      res.status(500).send({
+        message: "There was an error getting users.",
+        error: err,
+      });
+    } else if (results.length == 0) {
+      // case2
+      res.status(404).send({
+        message: "No users found :(",
+      });
+    } else {
+      res.send({
+        users: results,
+      });
+    }
+  });
+};
+
+
 // exports.login = (req, res) => {
 //   const { email, password } = req.body;
 
@@ -61,41 +90,45 @@ const saltRounds = 10;
 //   });
 // };
 
-// exports.createNewUser = async (req, res) => {
-//   let { email, password } = req.body;
-//   if (!email || !password) {
-//     //client error
-//     res.status(400).send({
-//       message: "Email or password was not defined",
-//     });
-//     return;
-//   }
-//   const encryptedPassword = await bcrypt.hash(password, saltRounds);
 
-//   const query = `
-//   INSERT INTO users (id, email, password)
-//   VALUES (?, ?, ?);`;
-//   const placeholders = [uuid(), email, encryptedPassword];
-//   db.query(query, placeholders, (err, results) => {
-//     if (err) {
-//       if (err.errno === 1062) {
-//         res.status(400).send({
-//           error: err,
-//           message: "That email already exists.",
-//         });
-//       } else {
-//         res.status(500).send({
-//           message:
-//             "There was an error creating your account. Please try again later.",
-//           error: err,
-//         });
-//       }
-//     } else {
-//       // success
-//       this.login(req, res);
-//     }
-//   });
-// };
+exports.createNewUser = async (req, res) => {
+    let { username, email, password, firstName } = req.body;
+    if (!username || !email || !password || !firstName) {
+      res.status(400).send({
+        message:
+          "All required fields must be filled out.",
+      });
+      return;
+    }
+  
+    const encryptedPassword = await bcrypt.hash(password, saltRounds);
+  
+    // console.log(req.body);
+    const query = `
+      INSERT INTO squadup.user (id, username, email, password, firstName)
+      VALUES
+          (?, ?, ?, ?, ?);
+      `;
+    const placeholders = [uuid(), username, email, encryptedPassword, firstName];
+    // tell the daatabase to execute that script
+    db.query(query, placeholders, (err, results) => {
+    //   console.log(results);
+      // this code will exectue when the database responds
+      // 3 possible cases: 404 - Nothing Found
+      //                       - whole error
+      //                       - Success
+      if (err) {
+        res.status(500).send({
+          message: "There was an error creating the user.",
+          error: err,
+        });
+      } else {
+        res.send({
+          message: "Your User was Created Successfully",
+        });
+      }
+    });
+  };
 
 // exports.deleteUserById = (req, res) => {
 //   let { id } = req.params;
