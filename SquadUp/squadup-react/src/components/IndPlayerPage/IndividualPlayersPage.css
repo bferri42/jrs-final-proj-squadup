@@ -1,0 +1,50 @@
+.ind-player-card-root {
+    position: relative;
+}
+
+.ind-player-card-container {
+    background-color: rgb(50, 53, 78);
+    color: rgb(233, 233, 239);
+    margin: 10em auto;
+    text-align: center;
+    height: 17em;
+    width: 20em;
+    padding: 2em;
+    border-radius: 10%;
+    font-family: 'Courier New', Courier, monospace;
+    position: relative;
+}
+
+img {
+    width: 14em;
+    height: 4em;
+}
+
+.ind-player-add {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    font-size: 20pt;
+}
+
+.hideMeAfter5Seconds {
+    animation: hideAnimation 0s ease-in 5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+
+    animation-fill-mode: forwards;
+    color: white;
+    position: absolute;
+    left: 59%;
+    top: 105%;
+    font-size: 20pt;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  @keyframes hideAnimation {
+    to {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
+  }

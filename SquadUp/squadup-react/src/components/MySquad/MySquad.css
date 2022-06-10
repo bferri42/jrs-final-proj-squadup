@@ -1,0 +1,40 @@
+.squad-title {
+    color: white;
+    margin: 1.5em auto;
+    text-align: center;
+    font-size: 40pt;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgba(71, 16, 200, 0.702);
+    height: 2em;
+}
+
+.mysquad-cards-container {
+    margin: auto;
+    padding-bottom: 7em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 70%;
+}
+
+:root{
+    background:#000106;
+  }
+  
+  .centered{
+    position:absolute;
+    left:50vw;
+    top:50vh;
+    transform:translateX(-50%) translateY(-50%) rotateX(15deg);
+    text-align:center;
+    
+  }
+  
+  
+  .neon{
+    font-family:'Neon 80s';
+    font-size:5rem;
+    color:#ffedff;
+    padding:30px;
+    filter:url(#stroke) url(#inner-glow) url(#outer-glow) url(#outer-glow1);
+  }

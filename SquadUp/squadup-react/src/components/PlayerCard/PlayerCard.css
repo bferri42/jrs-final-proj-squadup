@@ -1,0 +1,25 @@
+.player-card-container {
+text-decoration: none;
+width: 14em;
+height: 14em;
+margin-top: 2em;
+margin-right: 20px;
+padding: 1rem;
+/* position: relative; */
+border-radius: 1rem;
+text-align: center;
+color: aliceblue;
+background-color: rgb(50, 53, 78);
+font-family: 'Courier New', Courier, monospace;
+
+}
+
+.link-card {
+    color: white;
+    text-decoration: none;
+}
+
+.player-card-img {
+    margin-top: 3.5em;
+    width: 9em;
+}

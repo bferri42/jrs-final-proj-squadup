@@ -1,13 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import NavBar from './components/NavBar/NavBar';
+import UserLogin from './components/UserLogIn/UserLogin'
+import UserSignUp from './components/UserLogIn/UserSignUp'
+import PlayersPage from './components/PlayersPage/PlayersPage'
+import IndividualPlayersPage from './components/IndPlayerPage/IndividualPlayersPage'
+import MySquad from './components/MySquad/MySquad';
+import { ToastProvider } from "./components/Toast/ToastService";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ToastProvider>
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path='/' element={<App />}></Route>
+        <Route path='/login' element={<UserLogin />}></Route>
+        <Route path="/signup" element={<UserSignUp />}></Route>
+        <Route path="/players/" element={<PlayersPage />}></Route>
+        <Route path="/players/:game" element={<PlayersPage />}></Route>
+        <Route path='/mysquad' element={<MySquad />}></Route>
+        <Route path="/player/:username" element={<IndividualPlayersPage />}></Route>
+        <Route path="*" element={<div>404 - page does not exist</div>}></Route>
+      </Routes>
+    </BrowserRouter>
+    </ToastProvider>
   </React.StrictMode>
 );
 

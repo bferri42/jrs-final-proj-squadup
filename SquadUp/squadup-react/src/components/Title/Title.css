@@ -1,0 +1,102 @@
+
+.main {
+    display: block;
+    position: absolute;
+    font-family: 'Press Start 2P', cursive;
+  
+    top: 30%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    /* width: 50vw; */
+    height: auto;
+    font-size: 10pt;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .main span {
+    display: block;
+    position: relative;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 45pt;
+  
+    -webkit-transform: translateZ(0) translate3D(0, 0, 0);
+            transform: translateZ(0) translate3D(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    will-change: opacity;
+  }
+  .main .webdev {
+    color: #ffd9e2;
+    text-shadow: 0 0 0 transparent, 0 0 10px #ff003c, 0 0 20px rgba(255, 0, 60, 0.5), 0 0 40px #ff003c, 0 0 100px #ff003c, 0 0 200px #ff003c, 0 0 300px #ff003c, 0 0 500px #ff003c, 0 0 1000px #ff003c;
+    -webkit-animation: blink 4s infinite alternate;
+            animation: blink 4s infinite alternate;
+  }
+  .main .socod {
+    font-size: 20pt;
+    color: #d1f4d8;
+    text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 100px #2695ff, 0 0 200px #2695ff, 0 0 300px #2695ff, 0 0 500px #2695ff;
+    -webkit-animation: buzz 0.01s infinite alternate;
+            animation: buzz 0.01s infinite alternate;
+  }
+   
+  @-webkit-keyframes buzz {
+    70% {
+      opacity: 0.80;
+    }
+  }
+   
+  @keyframes buzz {
+    70% {
+      opacity: 0.80;
+    }
+  }
+  @-webkit-keyframes blink {
+    40% {
+      opacity: 1;
+    }
+    42% {
+      opacity: 0.8;
+    }
+    43% {
+      opacity: 1;
+    }
+    45% {
+      opacity: 0.2;
+    }
+    46% {
+      opacity: 1;
+    }
+  }
+  @keyframes blink {
+    40% {
+      opacity: 1;
+    }
+    42% {
+      opacity: 0.8;
+    }
+    43% {
+      opacity: 1;
+    }
+    45% {
+      opacity: 0.2;
+    }
+    46% {
+      opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+
+    .main {
+        text-align: center;
+        left: 50%;
+        font-size: 20pt;
+    }
+
+    .main .socod {
+      /* font-size: 14pt; */
+      display: none;
+    }
+  
+}

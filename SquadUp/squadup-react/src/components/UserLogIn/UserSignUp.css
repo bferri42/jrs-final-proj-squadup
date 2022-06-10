@@ -1,0 +1,48 @@
+.sign-up-form {
+    background-color: gray;
+    text-align: center;
+    width: 25em;
+    border-radius: 10px;
+    padding: 20px;
+    margin: auto;
+    margin-top: 7em;
+    font-family: 'Courier New', Courier, monospace;
+    opacity: .95;
+
+}
+
+.sign-up-title {
+    margin-bottom: 2em;
+}
+
+.input-container input {
+    width: 20em;
+    height: 3em;
+    margin-bottom: 1em;
+    border-radius: 25px;
+    border: none;
+    padding-left: 20px;
+    font-size: 12pt;
+
+}
+
+.sign-up-button {
+    width: 13em;
+    height: 3em;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    padding: .5em;
+    font-size: 12pt;
+}
+
+input::placeholder {
+    color: rgb(123, 119, 119);
+    font-size: 13pt;
+    transition: all 0.4s ease;
+  }
+
+  input:focus::placeholder{
+    opacity:0;
+  }

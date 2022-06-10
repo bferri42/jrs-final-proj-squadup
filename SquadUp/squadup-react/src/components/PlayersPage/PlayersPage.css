@@ -1,0 +1,13 @@
+/* .player-page-root {
+    background-color: rgb(103, 99, 99);
+
+} */
+.player-page-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 7em auto;
+    gap: 10px;  
+    width: 70%;
+    }
