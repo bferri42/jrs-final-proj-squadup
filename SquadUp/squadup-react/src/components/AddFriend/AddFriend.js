@@ -4,7 +4,7 @@ import Friend from './Friend'
 
 import './AddFriend.css'
 
-export default function AddFriend({ id, isFav, user1, user2, onHearted, onUnhearted }) {
+export default function AddFriend({ isFav, user1, user2, onHearted, onUnhearted }) {
 
     const http = useAxios();
 
@@ -26,8 +26,6 @@ export default function AddFriend({ id, isFav, user1, user2, onHearted, onUnhear
     }
 
     function onUnfavoriteClicked() {
-        // remove heart from fav list in D.B.
-
         http.deleteFavorite(user1, user2)
             .then(results => {
                 // remove from favorites on Favs array

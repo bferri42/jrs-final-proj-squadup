@@ -13,6 +13,7 @@ module.exports = (app) => {
     app.get("/api/users/favorites/squad/:user1", users.getSquadMembersByUserId);
     app.get("/api/users/favorites/mysquad/:user2", users.getPlayerInfoFromSquadList);
     app.get("/api/users/games/:username", users.getImageFromGamesTable);
+    // app.get("/api/users/requests/:user1", users.getFriendRequests);
 
   
     app.post("/api/users/signup", users.createNewUser);

@@ -49,7 +49,11 @@ export default function NavBar() {
         </Link>
     )
 
-
+    const friendRequestsButton = (
+        <Link to={"/requests"}>
+            <button>Friend Requests</button>
+        </Link>
+    )
 
 
     return (
@@ -65,7 +69,8 @@ export default function NavBar() {
 
             </div>
             <div className='nav-bar-right'>
-         
+
+                {user ? friendRequestsButton : ''}
                 {user ? '' : signUpButton}
                 {user ? '' : <span>|</span>}
                 {user ? logoutButton : loginButton}

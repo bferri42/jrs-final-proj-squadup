@@ -14,10 +14,6 @@ function getUsersByGame(favGame) {
     return axios.get(`${URL}/users/favgame/${favGame}`)
 }
 
-// function getUsersByGameId(id) {
-//     return axios.get(`${URL}/users/game/${id}`)
-// }
-
 function getUsersAndImageByGame(game) {
     return axios.get(`${URL}/users/game/${game}`)
 }
@@ -66,6 +62,9 @@ function addNewFavorite(user1, user2) {
     return axios.post(`${URL}/users/favorite`, {user1, user2})
 }
 
+// function getFriendRequests(user1) {
+//     return axios.get(`${URL}/users/requests/${user1}`)
+// }
 
 // NOTE -> CHANGED PARAMS TO BE OUT OF AN OBJECT 
 
@@ -89,11 +88,22 @@ function getGamesByName(name) {
     return axios.get(`${URL}/games/${name}`)
 }
 
+
+//--------ALL FRIENDS ROUTES-------------
+function getFriendRequests(user1) {
+    return axios.get(`${URL}/friends/requests/${user1}`)
+}
+
+function deleteRequest(user1, user2) {
+    return axios.delete(`${URL}/friends/requests/${user1}/${user2}`)
+}
+
+
+
 const api = {
     getAllUsers,
     getUserById,
     getUsersByGame,
-    // getUsersByGameId,
     getUsersAndImageByGame,
     getUserbyUsername,
     getUsersByskillLevel,
@@ -109,7 +119,9 @@ const api = {
     getAllGames,
     getGamesByName,
     getPlayerInfoFromSquadList,
-    getImageFromGamesTable
+    getImageFromGamesTable,
+    getFriendRequests,
+    deleteRequest
 }
 
 function useAxios() {

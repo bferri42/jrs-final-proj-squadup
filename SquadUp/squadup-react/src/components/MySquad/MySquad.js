@@ -4,23 +4,11 @@ import { useLocalStorage } from '../../services/localstorage.service';
 import PlayerCard from '../PlayerCard/PlayerCard';
 import './MySquad.css'
 
-export default function MySquad({ }) {
+export default function MySquad() {
 
     const localStorageService = useLocalStorage();
     const http = useAxios();
     const [favPlayers, setFavPlayers] = useState([]);
-
-
-    
-    // function getSquadMembersByUserId(user2) {
-    //     http.getSquadMembersByUserId(user2)
-    //         .then((response => {
-    //             console.log(response.data)
-    //             setFavPlayers(response.data.results)
-    //         }))
-    //         .catch(err => console.error(err))
-    // }
-
 
 
 
@@ -37,7 +25,6 @@ export default function MySquad({ }) {
 
     useEffect(() => {
         var user = localStorageService.getUser();
-        // getSquadMembersByUserId(user?.id)
         getPlayerInfoFromSquadList(user?.id)
     }, [])
 

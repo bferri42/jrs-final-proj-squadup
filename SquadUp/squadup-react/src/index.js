@@ -11,6 +11,7 @@ import PlayersPage from './components/PlayersPage/PlayersPage'
 import IndividualPlayersPage from './components/IndPlayerPage/IndividualPlayersPage'
 import MySquad from './components/MySquad/MySquad';
 import { ToastProvider } from "./components/Toast/ToastService";
+import FriendRequests from './components/FriendRequests/FriendRequests';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +23,7 @@ root.render(
         <Route path='/' element={<App />}></Route>
         <Route path='/login' element={<UserLogin />}></Route>
         <Route path="/signup" element={<UserSignUp />}></Route>
+        <Route path="/requests/" element={<FriendRequests />}></Route>
         <Route path="/players/" element={<PlayersPage />}></Route>
         <Route path="/players/:id" element={<PlayersPage />}></Route>
         <Route path='/mysquad' element={<MySquad />}></Route>

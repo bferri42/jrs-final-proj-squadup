@@ -8,6 +8,5 @@
     padding: 5em;
     gap: 10px;  
     border-top: 5px var(--tertiary-color) solid;
-    background-color: rgb(144, 142, 142);
-
-    }
+    background-color: rgb(86, 84, 84);
+}

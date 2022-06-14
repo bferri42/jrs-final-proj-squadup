@@ -1,0 +1,35 @@
+.friends-root {
+    text-align: center;
+}
+
+.friend-buttons {
+    position: absolute;
+    top: 20.5em;
+    left: 39.4em;
+}
+
+.friends-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 11em auto;
+    padding: 5em;
+    position: relative;
+}
+
+.accept {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    border: none;
+    height: 3em;
+    width: 6em;
+}
+
+.decline {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    border: none;
+    height: 3em;
+    width: 6em;
+}

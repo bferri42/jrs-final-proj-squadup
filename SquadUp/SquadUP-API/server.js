@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 require("./app/index");
 require("./app/routes/users.routes")(app);
 require("./app/routes/games.routes")(app);
+require("./app/routes/friends.routes")(app);
 
 
 const PORT = process.env.PORT || 8080;
