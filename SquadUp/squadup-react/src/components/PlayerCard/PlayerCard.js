@@ -7,18 +7,6 @@ import './PlayerCard.css'
 
 export default function PlayerCard({ id, username, img, skillLevel, logo }) {
 
-  // const localStorageService = useLocalStorage();
-  // const user = localStorageService.getUser();
-
-  // function getUserById(id) {
-  //   http.getUserById(id)
-  //   .then((results) => {
-  //     console.log(results.data.results[0])
-  //     setFavPlayer(results.data.results[0]);
-  //   })
-  //   .catch(err => console.error(err))
-  // }
-
 
   return (
     <div className='player-card-container'>

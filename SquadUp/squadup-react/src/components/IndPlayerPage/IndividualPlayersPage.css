@@ -13,6 +13,13 @@
     border-radius: 10%;
     font-family: 'Courier New', Courier, monospace;
     position: relative;
+    border: 3px var(--tertiary-color) solid;
+
+}
+
+.ind-player-card-container h1 {
+  color: var(--tertiary-color);
+
 }
 
 img {

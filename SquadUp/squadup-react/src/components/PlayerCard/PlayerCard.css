@@ -8,10 +8,15 @@ padding: 1rem;
 /* position: relative; */
 border-radius: 1rem;
 text-align: center;
-color: aliceblue;
+color: var(--tertiary-color);
 background-color: var(--main-color);
 font-family: 'Courier New', Courier, monospace;
+border: 2px var(--tertiary-color) solid;
 
+}
+
+.player-card-container h2 {
+    color: var(--tertiary-color);
 }
 
 .link-card {

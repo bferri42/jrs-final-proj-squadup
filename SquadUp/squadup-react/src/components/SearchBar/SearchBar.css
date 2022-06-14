@@ -14,7 +14,7 @@
 }
 
 .search-bar .btn-group {
-  border: none;
+  border: 1px var(--tertiary-color) solid;
   place-items: center;
   background: var(--secondary-color);
   border-radius: 5px;
@@ -27,7 +27,7 @@
 
 .search-bar .btn-group .game {
   border: none;
-  background: none;
+  background: var(--secondary-color);
   padding: 1.5rem 1rem;
   cursor: pointer;
   font: inherit;
@@ -41,6 +41,6 @@
 
 .btn-group .game:focus {
   background-color: var(--main-color);
-  color: var(--secondary-color);
+  color: var(--tertiary-color);
   border-radius: 5px;
 }
