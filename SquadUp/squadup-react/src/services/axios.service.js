@@ -14,8 +14,12 @@ function getUsersByGame(favGame) {
     return axios.get(`${URL}/users/favgame/${favGame}`)
 }
 
-function getUsersByGameId(id) {
-    return axios.get(`${URL}/users/game/${id}`)
+// function getUsersByGameId(id) {
+//     return axios.get(`${URL}/users/game/${id}`)
+// }
+
+function getUsersAndImageByGame(game) {
+    return axios.get(`${URL}/users/game/${game}`)
 }
 
 function getUserbyUsername(username) {
@@ -50,8 +54,8 @@ function getImageFromGamesTable(username) {
     return axios.get(`${URL}/users/games/${username}`)
 }
 
-function createNewUser({ username, password, DOB, firstName, timeZone }) {
-    return axios.post(`${URL}/users/signup`, { username, password, DOB, firstName, timeZone })
+function createNewUser({ username, password, DOB, firstName, timeZone, skillLevel, favGameId, mainGameID }) {
+    return axios.post(`${URL}/users/signup`, { username, password, DOB, firstName, timeZone, skillLevel, favGameId, mainGameID })
 }
 
 function login({ username, password }) {
@@ -89,7 +93,8 @@ const api = {
     getAllUsers,
     getUserById,
     getUsersByGame,
-    getUsersByGameId,
+    // getUsersByGameId,
+    getUsersAndImageByGame,
     getUserbyUsername,
     getUsersByskillLevel,
     getUsersByPlatform,

@@ -65,7 +65,7 @@ exports.getUserById = (req, res) => {
   });
 };
 
-exports.getUsersByFavGame = (req, res) => {
+exports.getUsersByGame = (req, res) => {
   const favGame = req.params.favGame;
   //const {id} = req.params; also works
   const query = `
@@ -97,13 +97,49 @@ exports.getUsersByFavGame = (req, res) => {
   });
 };
 
+exports.getUsersAndImageByGame = (req, res) => {
+  const {favGameId} = req.params;
+  //const {id} = req.params; also works
+  const query = `
+        SELECT * FROM squadup.users
+        INNER JOIN squadup.games ON users.favGameId=games.id
+             WHERE favGameId = ?
+             ORDER BY skillLevel
+             ;`;
+  const placeholders = [favGameId];
+  // tell the daatabase to execute that script
+  db.query(query, placeholders, (err, results) => {
+    // this code will exectue when the database responds
+    // 3 possible cases: 404 - Nothing Found
+    //                       - whole error
+    //                       - Success
+    if (err) {
+      res.status(500).send({
+        message: "There was an error getting any users with that favorite game.",
+        error: err,
+      });
+    } else if (results.length == 0) {
+      res.status(404).send({
+        message: "No users by favorite game found",
+      });
+    } else {
+      res.send({
+        message: "Here are your results",
+        results: results,
+      });
+    }
+  });
+};
+
 
 exports.getUserByUsername = (req, res) => {
   const username = req.params.username;
   //const {id} = req.params; also works
   const query = `
-        SELECT * FROM squadup.users
+        SELECT users.username, users.DOB, users.favGameId, users.mainGameID, users.skillLevel, users.timeZone, games.name, games.logo FROM squadup.users
+        INNER JOIN squadup.games ON users.favGameId=games.id
              WHERE username = ?
+             ORDER BY skillLevel
              ;`;
              
   const placeholders = [username];
@@ -263,10 +299,14 @@ exports.getPlayerInfoFromSquadList = (req, res) => {
   const user2 = req.params.user2;
 
   const query = `
-        SELECT * FROM squadup.users
-        INNER JOIN squadup.matches ON users.id=matches.user2
-              WHERE user1 = ?
-             ;`;
+  SELECT users.username, users.DOB, users.id, users.skillLevel, users.mainGameID, matches.user2, games.logo, games.name
+  FROM squadup.users
+  INNER JOIN squadup.matches
+    ON matches.user2=users.id
+  INNER JOIN squadup.games
+    ON games.id=users.favGameId
+      WHERE user1 = ?
+      ORDER BY skillLevel`;
   const placeholders = [user2];
   // tell the daatabase to execute that script
   db.query(query, placeholders, (err, results) => {
@@ -296,9 +336,10 @@ exports.getImageFromGamesTable = (req, res) => {
   const username = req.params.username;
 
   const query = `
-        SELECT users.id, users.username, users.DOB, users.skillLevel, users.timeZone, games.logo, games.name FROM squadup.users
+        SELECT users.id, users.username, users.DOB, users.skillLevel, users.timeZone, users.mainGameID, games.logo, games.name FROM squadup.users
         INNER JOIN squadup.games ON users.favGameId=games.id
               WHERE username = ?
+              ORDER BY skillLevel
              ;`;
   const placeholders = [username];
   // tell the daatabase to execute that script
@@ -309,16 +350,16 @@ exports.getImageFromGamesTable = (req, res) => {
     //                       - Success
     if (err) {
       res.status(500).send({
-        message: "There was an error getting any users111.",
+        message: "There was an error getting any users.",
         error: err,
       });
     } else if (results.length == 0) {
       res.status(404).send({
-        message: "No squad members found111.",
+        message: "No squad members found.",
       });
     } else {
       res.send({
-        message: "Here are your results111.",
+        message: "Here are your results.",
         results: results,
       });
     }
@@ -328,22 +369,22 @@ exports.getImageFromGamesTable = (req, res) => {
 
 exports.createNewUser = async (req, res) => {
 
-  let { username, password, DOB, firstName, timeZone } = req.body;
+  let { username, password, DOB, firstName, timeZone, skillLevel, favGameId, mainGameID } = req.body;
 
-  if (!username || !password || !DOB || !firstName || !timeZone) {
+  if (!username || !password || !DOB || !firstName || !timeZone || !skillLevel || !favGameId || !mainGameID) {
     res.status(400).send({
-      message: "username, password AND date of birth required to create account"
+      message: "All fields required to create account"
     });
     return
   }
   const encryptedPassword = await bcrypt.hash(password, saltRounds)
 
   const query = `
-  INSERT INTO squadup.users (id, username, password, DOB, firstName, timeZone)
+  INSERT INTO squadup.users (id, username, password, DOB, firstName, timeZone, skillLevel, favGameId, mainGameID)
   VALUES
-  (?, ?, ?, ?, ?, ?);
+  (?, ?, ?, ?, ?, ?, ?, ?, ?);
   `;
-  const placeholders = [uuid(), username, encryptedPassword, DOB, firstName, timeZone];
+  const placeholders = [uuid(), username, encryptedPassword, DOB, firstName, timeZone, skillLevel, favGameId, mainGameID];
 
   db.query(query, placeholders, (err, results) => {
     if (err) {
@@ -448,6 +489,33 @@ exports.addNewFavorite = (req, res) => {
 
 }
 
+exports.updateUserInfo = (req, res) => {
+  let { id, username, firstName, timeZone, skillLevel, favGameId } = req.params;
+
+  id = Number(id);
+  const query = `
+  UPDATE squadup.users
+  SET 
+
+  WHERE (id = ?);
+  `;
+  const placeholders = [username, firstName, timeZone, skillLevel, favGameId];
+  // tell the daatabase to execute that script
+  db.query(query, placeholders, (err, results) => {
+
+    if (err) {
+      res.status(500).send({
+        message: "There was an error updating your information.",
+        error: err,
+      });
+    } else {
+      res.send({
+        message: "You have been successfully deleted!",
+      });
+    }
+  });
+};
+
 exports.deleteUserByUsername = (req, res) => {
   let { username } = req.params;
   // id = Number(id);
@@ -508,3 +576,7 @@ exports.deleteFavorite = (req, res) => {
     }
   });
 }
+
+// create friend request
+// 'delete' friend request -> decline
+// 'delete' friend request -> accept -> and create 'match'

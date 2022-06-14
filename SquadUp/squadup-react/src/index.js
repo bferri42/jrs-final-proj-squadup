@@ -23,7 +23,7 @@ root.render(
         <Route path='/login' element={<UserLogin />}></Route>
         <Route path="/signup" element={<UserSignUp />}></Route>
         <Route path="/players/" element={<PlayersPage />}></Route>
-        <Route path="/players/:game" element={<PlayersPage />}></Route>
+        <Route path="/players/:id" element={<PlayersPage />}></Route>
         <Route path='/mysquad' element={<MySquad />}></Route>
         <Route path="/player/:username" element={<IndividualPlayersPage />}></Route>
         <Route path="*" element={<div>404 - page does not exist</div>}></Route>

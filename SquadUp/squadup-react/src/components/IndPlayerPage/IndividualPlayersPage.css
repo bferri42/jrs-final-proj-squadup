@@ -3,12 +3,12 @@
 }
 
 .ind-player-card-container {
-    background-color: rgb(50, 53, 78);
-    color: rgb(233, 233, 239);
+    background-color: var(--main-color);
+    color: var(--secondary-color);
     margin: 10em auto;
     text-align: center;
-    height: 17em;
-    width: 20em;
+    height: fit-content;
+    width: 22em;
     padding: 2em;
     border-radius: 10%;
     font-family: 'Courier New', Courier, monospace;
@@ -18,6 +18,7 @@
 img {
     width: 14em;
     height: 4em;
+    border-radius: 5px;
 }
 
 .ind-player-add {
@@ -27,14 +28,18 @@ img {
     font-size: 20pt;
 }
 
+.hideMeAfter5Seconds span {
+  margin-left: 15px;
+}
+
 .hideMeAfter5Seconds {
     animation: hideAnimation 0s ease-in 5s;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 
     animation-fill-mode: forwards;
-    color: white;
+    color: var(--secondary-color);
     position: absolute;
-    left: 59%;
+    left: 43%;
     top: 105%;
     font-size: 20pt;
     font-weight: bold;

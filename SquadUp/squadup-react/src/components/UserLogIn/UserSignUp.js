@@ -4,6 +4,8 @@ import { useAxios } from '../../services/axios.service';
 import { useLocalStorage } from '../../services/localstorage.service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBiohazard } from '@fortawesome/free-solid-svg-icons';
+import ToastMessenger, { useToasts } from '../Toast/ToastService';
+
 import './UserSignUp.css'
 
 export default function UserSignUp() {
@@ -11,7 +13,7 @@ export default function UserSignUp() {
   const http = useAxios()
   const localStorageService = useLocalStorage()
   const navigate = useNavigate()
-
+  const toast = useToasts();
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -24,6 +26,9 @@ export default function UserSignUp() {
   const DOBRef = useRef(null);
   const firstNameRef = useRef(null);
   const timeZoneRef = useRef(null);
+  const skillLevelRef = useRef(null);
+  const favGameIdRef = useRef(null);
+  const mainGameIDRef = useRef(null);
   const timeoutRef = useRef(null);
 
 
@@ -31,12 +36,12 @@ export default function UserSignUp() {
     http.createNewUser(formData)
       .then(results => {
         console.log(results)
-        alert("Account creation was a success!")
+        toast.success("Welcome Back Soldier!");
         localStorageService.saveUser(results.data.user)
         navigate('/')
       }).catch(err => {
         console.error(err);
-        alert("Oops! Username exists! Try something else")
+        toast.error("Oops! Username exists! Try something else")
       }
       )
   }
@@ -65,7 +70,6 @@ export default function UserSignUp() {
   function checkIfUsernameIsTaken() {
     http.getUserbyUsername(formData.username)
       .then((res) => {
-        console.log('the get route by username was sent! It returned this')
         console.log(formData.username)
         setIsUsernameTaken(true)
       })
@@ -94,8 +98,8 @@ export default function UserSignUp() {
     <form className="sign-up-form"
       onSubmit={handleFormSubmit}>
       <div className='sign-up-title'>
-      <h1>Welcome to Squad Up!</h1>
-      <span className='sign-up-icon'><FontAwesomeIcon icon={faBiohazard} size="2x"/></span>
+        <h1 className='signup-titleh1'>Welcome to Squad Up!</h1>
+        <span className='sign-up-icon'><FontAwesomeIcon icon={faBiohazard} size="2x" /></span>
       </div>
       <div className='input-container'>
         <div className='sign-up-input'>
@@ -162,6 +166,60 @@ export default function UserSignUp() {
 
 
               </div>
+              <div className='skillLevel-input'>
+
+                <select
+                  type="skillLevel"
+                  name="skillLevel"
+                  value={formData.skillLevel}
+                  onChange={handleChange}
+                  ref={skillLevelRef}
+                  placeholder="Skill Level"
+                  id="skillLevel"
+                  required>
+
+                  <option value="">Skill Level</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Advanced">Advanced</option>
+                </select>
+              </div>
+
+              <div className='favGameId-input'>
+
+                <select
+                  type="favGameId"
+                  name="favGameId"
+                  value={formData.favGameId}
+                  onChange={handleChange}
+                  ref={favGameIdRef}
+                  placeholder="Main Game"
+                  id="favGameId"
+                  required>
+
+                  <option value="">Main Game</option>
+                  <option value="1">Warzone</option>
+                  <option value="2">Apex Legends</option>
+                  <option value="3">Fortnite</option>
+                </select>
+              </div>
+
+              <div className='maingameID-input'>
+                <input
+                  type="mainGameID"
+                  name="mainGameID"
+                  value={formData.mainGameID}
+                  onChange={handleChange}
+                  ref={mainGameIDRef}
+                  placeholder="Main Game Id"
+                  id="mainGameID"
+                  required
+                />
+
+
+              </div>
+
+
               <br />
               <button
                 type="submit"
@@ -173,13 +231,14 @@ export default function UserSignUp() {
               <div className='cta-switch-container' >
                 <p >Already a member?</p>
                 <Link to="/login" className='link'>
-                  Get logged in
+                  Log In
                 </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <ToastMessenger />
     </form>
   )
 }

@@ -35,13 +35,13 @@ export default function SearchBar() {
         >
 
                 <div className='btn-group'>
-                <Link to={`/players/Warzone`}>
+                <Link to={`/players/1`}>
                 <button className='game'>Warzone</button>
                 </Link>
-                <Link to={`/players/Apex Legends`}>
+                <Link to={`/players/2`}>
                 <button className='game'>Apex Legends</button>
                 </Link>
-                <Link to={`/players/Fortnite`}>
+                <Link to={`/players/3`}>
                 <button className='game three'>Fortnite</button>
                 </Link>
                 </div>

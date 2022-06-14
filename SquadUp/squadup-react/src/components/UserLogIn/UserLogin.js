@@ -41,7 +41,7 @@ export default function UserLogin() {
       http.login(formData)
         .then(results => {
           console.log(results.data)
-          toast.success("Welcome Soldier!");
+          toast.success("Welcome Back Soldier!");
           localStorageService.saveUser(results.data.user);
           navigate('/')
         }).catch(err => {
@@ -71,8 +71,8 @@ export default function UserLogin() {
     <form className="login-form"
       onSubmit={handleFormSubmit}>
         <div className='login-title'>
-      <h2> Welcome to SQUAD UP! </h2>
-      <h1>Sign in to continue</h1>
+      <h1> Welcome to SQUAD UP! </h1>
+      <h2>Sign in to continue</h2>
       <span className='log-in-icon'><FontAwesomeIcon icon={faBiohazard} size="2x"/></span>
       </div>
       <div className='login-input-container'>
@@ -110,7 +110,7 @@ export default function UserLogin() {
           type="submit"
           className='login-button'
         >
-          Login
+          Log In
         </button>
         <br />
         <br />

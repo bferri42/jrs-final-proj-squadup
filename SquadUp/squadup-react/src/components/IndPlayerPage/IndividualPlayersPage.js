@@ -62,7 +62,7 @@ export default function IndividualPlayersPage() {
     getImageFromGamesTable(username)
     var user = localStorageService.getUser();
     getSquadMembersByUserId(user?.id)
-  }, [])
+  },[])
 
 
 
@@ -75,7 +75,7 @@ export default function IndividualPlayersPage() {
 
   return (
     <div className='ind-player-card-root'>
-      <div className="hideMeAfter5Seconds"><span><FontAwesomeIcon icon={faArrowUpLong} /><br /></span>Click here to<br />add to squad</div>
+      <div className="hideMeAfter5Seconds">Click the "+" to<br />add to your squad</div>
       <div className='ind-player-card-container'>
 
         {user &&
@@ -118,13 +118,13 @@ export default function IndividualPlayersPage() {
 
 
 
-
         <img className='ind-player-img' src={player.logo}></img>
-        <h2 className='player-name'>{player.username}</h2>
+        <h1 className='player-name'>{player.username}</h1>
         <p className='ind-player-info'>Time zone: {player.timeZone}</p>
         <p className='ind-player-info'>Date of birth: {player.DOB}</p>
-        <p className='ind-player-info'>Main Game: {player.name}</p>
         <p className='ind-player-info'>Skill Level: {player.skillLevel}</p>
+        <p className='ind-player-info'>Main Game: {player.name}</p>
+        <p className='ind-player-info'>Main Game ID: {player.mainGameID}</p>
       </div>
     </div>
   )

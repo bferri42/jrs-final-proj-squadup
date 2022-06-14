@@ -8,8 +8,20 @@ export default function MySquad({ }) {
 
     const localStorageService = useLocalStorage();
     const http = useAxios();
-
     const [favPlayers, setFavPlayers] = useState([]);
+
+
+    
+    // function getSquadMembersByUserId(user2) {
+    //     http.getSquadMembersByUserId(user2)
+    //         .then((response => {
+    //             console.log(response.data)
+    //             setFavPlayers(response.data.results)
+    //         }))
+    //         .catch(err => console.error(err))
+    // }
+
+
 
 
     function getPlayerInfoFromSquadList(user1) {
@@ -20,12 +32,12 @@ export default function MySquad({ }) {
             }))
             .catch(err => console.error(err))
     }
-    
 
 
 
     useEffect(() => {
         var user = localStorageService.getUser();
+        // getSquadMembersByUserId(user?.id)
         getPlayerInfoFromSquadList(user?.id)
     }, [])
 
@@ -34,13 +46,13 @@ export default function MySquad({ }) {
     return (
         <div className="mysquad-root">
 
-            <h1 className='squad-title'>Temp Header</h1>
+            <h1 className='squad-title'>MY SQUAD</h1>
             <div className='mysquad-cards-container'>
-                {favPlayers.map((player, id) => (
-                    <PlayerCard key={player.id}
+                {favPlayers.map((player, i) => (
+                    <PlayerCard key={i}
+                        
                         {...player}
                         isFav={true}
-                        // squad={squad}
                         favPlayers={favPlayers}
                         setFavPlayers={setFavPlayers}
                     />

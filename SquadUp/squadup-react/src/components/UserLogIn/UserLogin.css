@@ -1,15 +1,16 @@
 .login-form {
-    background-color: gray;
+    color: var(--secondary-color);
+    background-color: var(--main-color);
     text-align: center;
     width: 27.5em;
     height: 30em;
     border-radius: 10px;
-    padding-top: 5em;
+    padding-top: 2em;
     padding-bottom: 5em;
     margin: auto;
     margin-top: 7em;
     font-family: 'Courier New', Courier, monospace;
-    opacity: .95;
+    /* opacity: .95; */
 }
 
 .login-input-container input {
@@ -35,7 +36,7 @@
 }
 
 input::placeholder {
-    color: rgb(123, 119, 119);
+  --secondary-color: rgb(233, 227, 227);
     font-size: 13pt;
     transition: all 0.4s ease;
   }

@@ -5,11 +5,12 @@ body {
 }
 
 .nav-bar-root {
-    padding: 5px;  
+    padding: .5em;  
+    background: var(--main-color);
 
     display: flex;
     justify-content: space-between;
-    font-size: 18pt;
+    /* font-size: 18pt; */
     transition: 0.3s;
 }
 
@@ -17,15 +18,20 @@ body {
     
     background: none;
     border: none;
-    color: rgba(255, 255, 255, 0.718);
+    color: var(--secondary-color);
     cursor: pointer;
-    font-size: 14pt;
+    font-size: 16pt;
     padding: 3px 1em;
 }
 
 .nav-bar-root button:hover {
     background: none;
-    color: white;
+    color: var(--secondary-color);
+}
+
+.nav-bar-root span {
+    color: var(--secondary-color);
+
 }
 
 .fa-icon {

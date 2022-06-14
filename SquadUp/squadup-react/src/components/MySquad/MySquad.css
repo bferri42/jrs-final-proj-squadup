@@ -1,16 +1,21 @@
+
 .squad-title {
-    color: white;
-    margin: 1.5em auto;
+    color: var(--secondary-color);
+    margin: 2em  auto;
     text-align: center;
     font-size: 40pt;
-    font-family: 'Courier New', Courier, monospace;
-    background-color: rgba(71, 16, 200, 0.702);
-    height: 2em;
-}
+    font-family: 'Press Start 2P', cursive;
+    /* padding: .7em; */
+      color: #ffd9e2;
+      text-shadow: 0 0 0 transparent, 0 0 10px #ff003c, 0 0 20px rgba(255, 0, 60, 0.5), 0 0 40px #ff003c, 0 0 100px #ff003c, 0 0 200px #ff003c, 0 0 300px #ff003c, 0 0 500px #ff003c, 0 0 1000px #ff003c;
+      -webkit-animation: blink 4s infinite alternate;
+              animation: blink 4s infinite alternate;
+    }
+
 
 .mysquad-cards-container {
     margin: auto;
-    padding-bottom: 7em;
+    /* padding-bottom: 7em; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -21,20 +26,3 @@
     background:#000106;
   }
   
-  .centered{
-    position:absolute;
-    left:50vw;
-    top:50vh;
-    transform:translateX(-50%) translateY(-50%) rotateX(15deg);
-    text-align:center;
-    
-  }
-  
-  
-  .neon{
-    font-family:'Neon 80s';
-    font-size:5rem;
-    color:#ffedff;
-    padding:30px;
-    filter:url(#stroke) url(#inner-glow) url(#outer-glow) url(#outer-glow1);
-  }

@@ -9,7 +9,7 @@ padding: 1rem;
 border-radius: 1rem;
 text-align: center;
 color: aliceblue;
-background-color: rgb(50, 53, 78);
+background-color: var(--main-color);
 font-family: 'Courier New', Courier, monospace;
 
 }

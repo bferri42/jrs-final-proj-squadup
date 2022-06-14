@@ -7,10 +7,10 @@ import SearchBar from '../SearchBar/SearchBar';
 import Title from '../Title/Title';
 
 
-export default function PlayersPage() {
+export default function PlayersPage({}) {
 
   const http = useAxios();
-  const { game } = useParams();
+  const { id } = useParams();
   const [players, setPlayers] = useState([]);
   const [favPlayers, setFavPlayers] = useState([]);
 
@@ -25,8 +25,8 @@ export default function PlayersPage() {
         console.error(err)
       })
   }
-  function getUsersByGameId(id) {
-    http.getUsersByGameId(id)
+  function getUsersAndImageByGame(game) {
+    http.getUsersAndImageByGame(game)
       .then(res => {
         // console.log(res.data.results)
         setPlayers(res.data.results)
@@ -44,23 +44,22 @@ export default function PlayersPage() {
       })
   }
 
-  function addPlayerToFavList(player) {
-    setFavPlayers([...favPlayers, player])
-  }
+  // function addPlayerToFavList(player) {
+  //   setFavPlayers([...favPlayers, player])
+  // }
 
-  function removePlayerFromFavList(id) {
-    setFavPlayers(favPlayers.filter(userId => userId !== id));
-  }
+  // function removePlayerFromFavList(id) {
+  //   setFavPlayers(favPlayers.filter(userId => userId !== id));
+  // }
 
-  function isPlayerInFavorteList(id) {
-    return favPlayers.includes(id);
-  }
+  // function isPlayerInFavorteList(id) {
+  //   return favPlayers.includes(id);
+  // }
 
 
   useEffect(() => {
-    getUsersByGame(game);
-    
-  },[])
+    getUsersAndImageByGame(id);
+    })
 
 
   return (
@@ -69,15 +68,18 @@ export default function PlayersPage() {
       <SearchBar />
       <div className='player-page-container'>
 
-        {players.map((player) => (
-          <PlayerCard key={player.id}
+        {players.map((player, i) => (
+          <PlayerCard
+           key={i}
             username={player.username}
             logo={player.logo}
             skillLevel={player.skillLevel}
+            // mainGameID={player.mainGameID}
             {...players}
-            isFav={isPlayerInFavorteList(player.id)}
-            setIsNotFav={removePlayerFromFavList}
-            setIsFav={addPlayerToFavList} />
+            // isFav={isPlayerInFavorteList(player.id)}
+            // setIsNotFav={removePlayerFromFavList}
+            // setIsFav={addPlayerToFavList} 
+            />
         ))}
 
       </div>

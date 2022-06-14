@@ -1,4 +1,5 @@
 
+
 .main {
     display: block;
     position: absolute;
@@ -8,7 +9,6 @@
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-    /* width: 50vw; */
     height: auto;
     font-size: 10pt;
     text-align: center;
