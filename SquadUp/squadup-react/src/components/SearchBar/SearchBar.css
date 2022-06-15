@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap');
 
 .search-bar {
   display: flex;
@@ -23,16 +24,21 @@
   font-size: 18pt;
   display: flex;
   flex-direction: row;
+  font-family: 'Teko', sans-serif;
 }
+
 
 .search-bar .btn-group .game {
   border: none;
   background: var(--secondary-color);
-  padding: 1.5rem 1rem;
+  padding: .5rem;
   cursor: pointer;
   font: inherit;
   font-weight: 900;
   text-transform: capitalize;
+  width: 5em;
+  font-size: 28pt;
+
 }
 
 .search-bar .btn-group .game:active {

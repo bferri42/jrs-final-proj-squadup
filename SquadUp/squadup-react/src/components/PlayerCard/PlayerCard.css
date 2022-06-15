@@ -18,6 +18,20 @@ border: 2px var(--tertiary-color) solid;
     color: var(--tertiary-color);
 }
 
+.player-card-container button {
+    border-radius: 5px;
+    border: none;
+
+}
+
+/* .accept-button {
+    background-color: rgb(111, 186, 111);
+}
+
+.decline-button {
+    background-color: rgb(238, 87, 87);
+} */
+
 .link-card {
     color: white;
     text-decoration: none;

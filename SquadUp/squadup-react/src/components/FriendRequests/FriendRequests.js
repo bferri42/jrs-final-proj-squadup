@@ -15,6 +15,7 @@ export default function FriendRequests({ user1, user2 }) {
     const http = useAxios();
     const { username } = useParams();
     const [requested, setRequested] = useState([]);
+    const [showButton, setShowButton] = useState(false)
 
 
 
@@ -37,8 +38,8 @@ export default function FriendRequests({ user1, user2 }) {
             .catch(err => console.error(err))
     }
 
-    function deleteRequest() {
-        http.deleteRequest(user1, user2)
+    function addNewFavorite() {
+        http.addNewFavorite(user1, user2)
             .then((response => {
                 console.log(response.data)
 
@@ -55,22 +56,23 @@ export default function FriendRequests({ user1, user2 }) {
 
     return (
         <div className="friends-root">
-            <h1 className='friends-title'>MY SQUAD</h1>
+            <h1 className='friends-title'>Pending Requests</h1>
             <div className='friends-cards-container'>
                 {requested.map((player, i) => (
                     <PlayerCard key={i}
-
                         {...player}
                         isFav={true}
                         requested={requested}
                         setRequested={setRequested}
                     />
                 ))}
-                <div className='friend-buttons'>
-                    <button className='accept'>Accept</button>
-                    <button className='decline' onClick={deleteRequest}>Decline</button>
-                </div>
             </div>
-
         </div>)
+
+
 }
+
+///issues:
+//accept/decline button instead of add/undo button
+//making mysquad page show two way friends
+//removing friend from pending page after accept

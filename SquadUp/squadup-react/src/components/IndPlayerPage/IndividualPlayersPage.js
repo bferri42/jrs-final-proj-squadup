@@ -72,7 +72,6 @@ export default function IndividualPlayersPage() {
 
   return (
     <div className='ind-player-card-root'>
-      <div className="hideMeAfter5Seconds">Click the "+" to<br />add to your squad</div>
       <div className='ind-player-card-container'>
 
         {user &&
