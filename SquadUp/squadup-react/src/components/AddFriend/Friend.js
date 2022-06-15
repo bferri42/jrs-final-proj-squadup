@@ -10,19 +10,14 @@ export default function Friend({ isFav, onFavoriteClicked, onUnfavoriteClicked }
     const outlinedAddFriend = (
         <div className='heart-container empty'
             onClick={onFavoriteClicked} >
-            <FontAwesomeIcon
-                icon={faSquareRegular}
-                size="lg"
-            />
+           <button className='friend-button add'>Add Friend</button>
         </div>)
 
     const solidAddFriend = (
         <div className='heart-container solid'
             onClick={onUnfavoriteClicked} >
-            <FontAwesomeIcon
-                icon={faSquareSolid}
-                size="lg"
-            />
+                  <button className='friend-button undo'>Undo Request</button>
+
         </div>
     )
 

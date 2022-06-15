@@ -3,7 +3,6 @@ module.exports = (app) => {
 
     app.get("/api/friends/requests/:user1", friends.getFriendRequests);
 
-    app.post("/api/friends/favorite", users.sendRequest);
 
     app.delete("/api/friends/requests/:user1/:user2", friends.deleteRequest);
 }

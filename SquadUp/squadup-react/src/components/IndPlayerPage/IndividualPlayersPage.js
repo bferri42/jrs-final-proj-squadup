@@ -3,8 +3,6 @@ import { useParams } from 'react-router-dom';
 import { useAxios } from '../../services/axios.service';
 import { useLocalStorage } from '../../services/localstorage.service';
 import AddFriend from '../AddFriend/AddFriend';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUpLong } from '@fortawesome/free-solid-svg-icons';
 import './IndividualPlayersPage.css'
 
 export default function IndividualPlayersPage() {
@@ -51,7 +49,6 @@ export default function IndividualPlayersPage() {
         console.log(favPlayers)
         return true;
       }
-      // console.log(isPlayerInSquad)
     }
     return false;
   }
@@ -86,7 +83,6 @@ export default function IndividualPlayersPage() {
                 isFav={isFav}
                 user1={user.id}
                 user2={player.id}
-                // isPlayerInSquad={isPlayerInSquad}
                 onHearted={() => {
                   setIsFav(true)
                 }}
@@ -99,7 +95,6 @@ export default function IndividualPlayersPage() {
                   isFav={isFav}
                   user1={user.id}
                   user2={player.id}
-                  // isPlayerInSquad={isPlayerInSquad}
                   onHearted={() => {
                     setIsFav(true)
                   }}
@@ -109,29 +104,16 @@ export default function IndividualPlayersPage() {
                 />
               )
             }
-
-
-
           </div>
-        }
-
-
-
-
+}
         <img className='ind-player-img' src={player.logo}></img>
         <h1 className='player-name'>{player.username}</h1>
         <p className='ind-player-info'>Time zone: {player.timeZone}</p>
         <p className='ind-player-info'>Date of birth: {player.DOB}</p>
         <p className='ind-player-info'>Skill Level: {player.skillLevel}</p>
         <p className='ind-player-info'>Main Game: {player.name}</p>
-        <p className='ind-player-info'>Main Game ID: {player.mainGameID}</p>
+        <p className='ind-player-info'>Game ID: {player.mainGameID}</p>
       </div>
     </div>
   )
 }
-
-
-
-
-
-

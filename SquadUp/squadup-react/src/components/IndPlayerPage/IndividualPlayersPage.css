@@ -7,7 +7,7 @@
     color: var(--secondary-color);
     margin: 10em auto;
     text-align: center;
-    height: fit-content;
+    height: 22em;
     width: 22em;
     padding: 2em;
     border-radius: 10%;
@@ -30,8 +30,8 @@ img {
 
 .ind-player-add {
     position: absolute;
-    bottom: 1em;
-    right: 1em;
+    bottom: .9em;
+    right: 5.5em;
     font-size: 20pt;
 }
 

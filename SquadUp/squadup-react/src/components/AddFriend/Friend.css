@@ -1,0 +1,22 @@
+.friend-button {
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+    padding: 8px;
+    width: 9em;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.friend-button.add {
+    background-color: var(--tertiary-color);
+    border: none;
+
+} 
+
+.friend-button.undo {
+    border: 2px solid var(--tertiary-color);
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+
+}
