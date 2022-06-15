@@ -2,8 +2,6 @@ import React from 'react'
 import { useAxios } from '../../services/axios.service'
 import Friend from './Friend'
 
-import './AddFriend.css'
-
 export default function AddFriend({ isFav, user1, user2, onHearted, onUnhearted }) {
 
     const http = useAxios();

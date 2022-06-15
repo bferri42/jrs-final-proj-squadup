@@ -1,7 +1,4 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSquarePlus as faSquareRegular } from '@fortawesome/free-regular-svg-icons'
-import { faSquarePlus as faSquareSolid } from '@fortawesome/free-solid-svg-icons'
 import './Friend.css';
 
 export default function Friend({ isFav, onFavoriteClicked, onUnfavoriteClicked }) {

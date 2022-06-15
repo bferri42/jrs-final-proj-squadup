@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useParams, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAxios } from '../../services/axios.service';
 import { useLocalStorage } from '../../services/localstorage.service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,7 +10,6 @@ export default function NavBar() {
 
     const http = useAxios();
     const navigate = useNavigate();
-    const { userId } = useParams();
     const ls = useLocalStorage();
     const user = ls.getUser();
 

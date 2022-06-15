@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&family=Teko:wght@300&display=swap');
+
+
 html,
 body {
     margin: 0;
@@ -7,15 +10,13 @@ body {
 .nav-bar-root {
     padding: .5em;  
     background: var(--main-color);
-
     display: flex;
     justify-content: space-between;
-    /* font-size: 18pt; */
     transition: 0.3s;
 }
 
 .nav-bar-root button {
-    
+    font-family: 'Rajdhani', sans-serif;
     background: none;
     border: none;
     color: var(--secondary-color);
@@ -36,10 +37,7 @@ body {
 
 .fa-icon {
     margin-left: 5px;
-    /* margin-right: 9px; */
 }
 
-/* .button {
-    padding-right: 3em;
-} */
+
 

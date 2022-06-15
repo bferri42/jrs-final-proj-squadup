@@ -34,35 +34,3 @@ img {
     right: 5.5em;
     font-size: 20pt;
 }
-
-/* .hideMeAfter5Seconds span {
-  margin-left: 15px;
-}
-
-.hideMeAfter5Seconds {
-    animation: hideAnimation 0s ease-in 5s;
-    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-
-    animation-fill-mode: forwards;
-    color: rgb(158, 240, 158);
-    position: absolute;
-    left: 43%;
-    top: 105%;
-    font-size: 20pt;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-  } */
-
-  .ind-player-card-container {
-    animation: slideIn 2s;
-  }
-
-  
-  
-  /* @keyframes hideAnimation {
-    to {
-      visibility: hidden;
-      width: 0;
-      height: 0;
-    }
-  } */

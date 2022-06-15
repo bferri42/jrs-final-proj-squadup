@@ -5,7 +5,6 @@
     text-align: center;
     font-size: 40pt;
     font-family: 'Press Start 2P', cursive;
-    /* padding: .7em; */
       color: #ffd9e2;
       text-shadow: 0 0 0 transparent, 0 0 10px #ff003c, 0 0 20px rgba(255, 0, 60, 0.5), 0 0 40px #ff003c, 0 0 100px #ff003c, 0 0 200px #ff003c, 0 0 300px #ff003c, 0 0 500px #ff003c, 0 0 1000px #ff003c;
       -webkit-animation: blink 4s infinite alternate;
@@ -15,7 +14,6 @@
 
 .mysquad-cards-container {
     margin: auto;
-    /* padding-bottom: 7em; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -32,10 +30,7 @@
     padding: 1.5rem;
     font-family: 'Press Start 2P', cursive;
     height: 9em;
-    background-color: #dfe4e0a0;
+    background-color: var(--main-color);
+    color: var(--secondary-color);
     backdrop-filter: blur(10px);
-}
-
-.no-squad-container #icon{
-    color: rgb(249, 79, 107);
 }

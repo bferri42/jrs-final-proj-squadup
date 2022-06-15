@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import AddFriend from '../AddFriend/AddFriend';
-import { useLocalStorage } from '../../services/localstorage.service'
+
 
 import './PlayerCard.css'
 
