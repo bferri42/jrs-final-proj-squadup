@@ -10,7 +10,7 @@ text-align: center;
 color: var(--tertiary-color);
 background-color: var(--main-color);
 font-family: 'Courier New', Courier, monospace;
-border: 2px var(--tertiary-color) solid;
+border: 2px var(--secondary-color) solid;
 
 }
 
@@ -33,7 +33,7 @@ border: 2px var(--tertiary-color) solid;
 } */
 
 .link-card {
-    color: white;
+    color: var(--secondary-color);
     text-decoration: none;
 }
 

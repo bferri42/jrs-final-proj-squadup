@@ -70,8 +70,8 @@ export default function NavBar() {
             </div>
             <div className='nav-bar-right'>
 
-                {user ? friendRequestsButton : ''}
-                {user ? <span>|</span> : ''}
+                {/* {user ? friendRequestsButton : ''} */}
+                {/* {user ? <span>|</span> : ''} */}
                 {user ? '' : signUpButton}
                 {user ? '' : <span>|</span>}
                 {user ? logoutButton : loginButton}

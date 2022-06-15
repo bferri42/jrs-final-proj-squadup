@@ -36,7 +36,7 @@ export default function UserSignUp() {
     http.createNewUser(formData)
       .then(results => {
         console.log(results)
-        toast.success("Welcome Back Soldier!");
+        toast.success("Welcome Aboard Soldier!");
         localStorageService.saveUser(results.data.user)
         navigate('/')
       }).catch(err => {

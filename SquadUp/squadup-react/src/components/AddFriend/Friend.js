@@ -16,7 +16,7 @@ export default function Friend({ isFav, onFavoriteClicked, onUnfavoriteClicked }
     const solidAddFriend = (
         <div className='heart-container solid'
             onClick={onUnfavoriteClicked} >
-                  <button className='friend-button undo'>Undo Request</button>
+                  <button className='friend-button undo'>Remove</button>
 
         </div>
     )

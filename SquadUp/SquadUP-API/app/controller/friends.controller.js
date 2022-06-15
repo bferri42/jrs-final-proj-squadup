@@ -41,6 +41,10 @@ exports.getFriendRequests = (req, res) => {
     });
 };
 
+
+
+
+
 exports.deleteRequest = (req, res) => {
     let { user1, user2 } = req.params;
 

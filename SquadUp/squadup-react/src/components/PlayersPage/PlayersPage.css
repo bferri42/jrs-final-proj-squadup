@@ -7,6 +7,6 @@
     margin: 11em auto;
     padding: 5em;
     gap: 10px;  
-    border-top: 5px var(--tertiary-color) solid;
-    background-color: rgb(86, 84, 84);
+    border-top: 4px var(--secondary-color) solid;
+    background-color: var(--tertiary-color);
 }

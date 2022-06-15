@@ -104,7 +104,7 @@ exports.getUsersAndImageByGame = (req, res) => {
         SELECT * FROM squadup.users
         INNER JOIN squadup.games ON users.favGameId=games.id
              WHERE favGameId = ?
-             ORDER BY skillLevel
+             ORDER BY FIELD (skillLevel, 'Beginner', 'Intermediate', 'Advanced')
              ;`;
   const placeholders = [favGameId];
   // tell the daatabase to execute that script
@@ -139,7 +139,7 @@ exports.getUserByUsername = (req, res) => {
         SELECT users.username, users.DOB, users.favGameId, users.mainGameID, users.skillLevel, users.timeZone, games.name, games.logo FROM squadup.users
         INNER JOIN squadup.games ON users.favGameId=games.id
              WHERE username = ?
-             ORDER BY skillLevel
+             ORDER BY FIELD (skillLevel, 'Beginner', 'Intermediate', 'Advanced')
              ;`;
              
   const placeholders = [username];
@@ -306,7 +306,8 @@ exports.getPlayerInfoFromSquadList = (req, res) => {
   INNER JOIN squadup.games
     ON games.id=users.favGameId
       WHERE user1 = ?
-      ORDER BY skillLevel`;
+      ORDER BY FIELD (skillLevel, 'Beginner', 'Intermediate', 'Advanced')`
+      ;
   const placeholders = [user2];
   // tell the daatabase to execute that script
   db.query(query, placeholders, (err, results) => {
@@ -339,8 +340,8 @@ exports.getImageFromGamesTable = (req, res) => {
         SELECT users.id, users.username, users.DOB, users.skillLevel, users.timeZone, users.mainGameID, games.logo, games.name FROM squadup.users
         INNER JOIN squadup.games ON users.favGameId=games.id
               WHERE username = ?
-              ORDER BY skillLevel
-             ;`;
+              ORDER BY FIELD (skillLevel, 'Beginner', 'Intermediate', 'Advanced')
+              ;`;
   const placeholders = [username];
   // tell the daatabase to execute that script
   db.query(query, placeholders, (err, results) => {

@@ -41,6 +41,7 @@ export default function IndividualPlayersPage() {
         setPlayer(results.data.results[0])
       })
   }
+  
 
 
   function isPlayerInSquad(id) {
@@ -58,7 +59,9 @@ export default function IndividualPlayersPage() {
     getUserByUserName(username);
     getImageFromGamesTable(username)
     var user = localStorageService.getUser();
-    getSquadMembersByUserId(user?.id)
+    getSquadMembersByUserId(user?.id);
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+
   },[])
 
 

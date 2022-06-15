@@ -26,3 +26,15 @@
     background:#000106;
   }
   
+  .no-squad-container{
+    margin-top: 10%;
+    text-align: center;
+    padding: 1.5rem;
+
+    background-color: #dfe4e0a0;
+    backdrop-filter: blur(10px);
+}
+
+.no-squad-container #icon{
+    color: rgb(249, 79, 107);
+}
