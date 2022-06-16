@@ -5,11 +5,11 @@ import { useLocalStorage } from '../../services/localstorage.service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBiohazard } from '@fortawesome/free-solid-svg-icons';
 import ToastMessenger, { useToasts } from '../Toast/ToastService';
-
+import logo from '../../images/logo.png'
 import './UserSignUp.css'
 
 export default function UserSignUp() {
-
+  // const squadLogo = [logo]
   const http = useAxios()
   const localStorageService = useLocalStorage()
   const navigate = useNavigate()
@@ -24,7 +24,6 @@ export default function UserSignUp() {
   const usernameRef = useRef(null);
   const passwordRef = useRef(null);
   const DOBRef = useRef(null);
-  const firstNameRef = useRef(null);
   const timeZoneRef = useRef(null);
   const skillLevelRef = useRef(null);
   const favGameIdRef = useRef(null);
@@ -98,8 +97,9 @@ export default function UserSignUp() {
     <form className="sign-up-form"
       onSubmit={handleFormSubmit}>
       <div className='sign-up-title'>
-        <h1 className='signup-titleh1'>Welcome to Squad Up!</h1>
-        <span className='sign-up-icon'><FontAwesomeIcon icon={faBiohazard} size="2x" /></span>
+        <h1 className='signup-titleh1'>Welcome to SQUAD UP!</h1>
+        <p>We need information to fill out your player card!</p>
+        {/* <span className='sign-up-icon'><FontAwesomeIcon icon={faBiohazard} size="2x" /></span> */}
       </div>
       <div className='input-container'>
         <div className='sign-up-input'>
@@ -130,112 +130,101 @@ export default function UserSignUp() {
             id="password"
             required
           />
-          <div className='firstName-input'>
-            <input
-              type="firstName"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              ref={firstNameRef}
-              placeholder="First Name"
-              id="firstName"
-              required
-            />
-            <div className='DOB-input'>
-              <input
-                type="DOB"
-                name="DOB"
-                value={formData.DOB}
-                onChange={handleChange}
-                ref={DOBRef}
-                placeholder="DOB YYYY-MM-DD"
-                id="DOB"
-                required
-              />
-              <div className='TZ-input'>
-                <input
-                  type="timeZone"
-                  name="timeZone"
-                  value={formData.timeZone}
-                  onChange={handleChange}
-                  ref={timeZoneRef}
-                  placeholder="Time Zone"
-                  id="timeZone"
-                  required
-                />
+        </div>
 
 
-              </div>
-              <div className='skillLevel-input'>
+        <div className='DOB-input'>
+          <input
+            type="DOB"
+            name="DOB"
+            value={formData.DOB}
+            onChange={handleChange}
+            ref={DOBRef}
+            placeholder="DOB YYYY-MM-DD"
+            id="DOB"
+            required
+          />
+        </div>
 
-                <select
-                  type="skillLevel"
-                  name="skillLevel"
-                  value={formData.skillLevel}
-                  onChange={handleChange}
-                  ref={skillLevelRef}
-                  placeholder="Skill Level"
-                  id="skillLevel"
-                  required>
+        <div className='TZ-input'>
+          <input
+            type="timeZone"
+            name="timeZone"
+            value={formData.timeZone}
+            onChange={handleChange}
+            ref={timeZoneRef}
+            placeholder="Time Zone"
+            id="timeZone"
+            required
+          />
+        </div>
+        <div className='skillLevel-input'>
 
-                  <option value="">Skill Level</option>
-                  <option value="Beginner">Beginner</option>
-                  <option value="Intermediate">Intermediate</option>
-                  <option value="Advanced">Advanced</option>
-                </select>
-              </div>
+          <select
+            type="skillLevel"
+            name="skillLevel"
+            value={formData.skillLevel}
+            onChange={handleChange}
+            ref={skillLevelRef}
+            placeholder="Skill Level"
+            id="skillLevel"
+            required>
 
-              <div className='favGameId-input'>
+            <option value="">Skill Level</option>
+            <option value="Bronze">Bronze</option>
+            <option value="Silver">Silver</option>
+            <option value="Gold">Gold</option>
+          </select>
+        </div>
 
-                <select
-                  type="favGameId"
-                  name="favGameId"
-                  value={formData.favGameId}
-                  onChange={handleChange}
-                  ref={favGameIdRef}
-                  placeholder="Main Game"
-                  id="favGameId"
-                  required>
+        <div className='favGameId-input'>
 
-                  <option value="">Main Game</option>
-                  <option value="1">Warzone</option>
-                  <option value="2">Apex Legends</option>
-                  <option value="3">Fortnite</option>
-                </select>
-              </div>
+          <select
+            type="favGameId"
+            name="favGameId"
+            value={formData.favGameId}
+            onChange={handleChange}
+            ref={favGameIdRef}
+            placeholder="Main Game"
+            id="favGameId"
+            required>
 
-              <div className='maingameID-input'>
-                <input
-                  type="mainGameID"
-                  name="mainGameID"
-                  value={formData.mainGameID}
-                  onChange={handleChange}
-                  ref={mainGameIDRef}
-                  placeholder="Main Game Id"
-                  id="mainGameID"
-                  required
-                />
+            <option value="">Main Game</option>
+            <option value="1">Warzone</option>
+            <option value="2">Apex Legends</option>
+            <option value="3">Fortnite</option>
+          </select>
+        </div>
+
+        <div className='maingameID-input'>
+          <input
+            type="mainGameID"
+            name="mainGameID"
+            value={formData.mainGameID}
+            onChange={handleChange}
+            ref={mainGameIDRef}
+            placeholder="Gamer Tag"
+            id="mainGameID"
+            required
+          />
 
 
-              </div>
+        </div>
 
 
-              <br />
-              <button
-                type="submit"
-                className='sign-up-button'
-              >Create my account!
-              </button>
-              <br />
-              <br />
-              <div className='cta-switch-container' >
-                <p >Already a member?</p>
-                <Link to="/login" className='link'>
-                  Log In
-                </Link>
-              </div>
-            </div>
-          </div>
+        <br />
+        <button
+          type="submit"
+          className='sign-up-button'
+        >Create my account!
+        </button>
+        <br />
+        <br />
+        <div className='cta-switch-container' >
+          <p >Already a member?</p>
+          <Link to="/login" className='link'>
+            Log In
+          </Link>
         </div>
       </div>
       <ToastMessenger />

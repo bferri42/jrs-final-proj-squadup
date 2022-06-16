@@ -104,7 +104,7 @@ exports.getUsersAndImageByGame = (req, res) => {
         SELECT * FROM squadup.users
         INNER JOIN squadup.games ON users.favGameId=games.id
              WHERE favGameId = ?
-             ORDER BY FIELD (skillLevel, 'Beginner', 'Intermediate', 'Advanced')
+             ORDER BY FIELD (skillLevel, 'Bronze', 'Silver', 'Gold')
              ;`;
   const placeholders = [favGameId];
   // tell the daatabase to execute that script
@@ -139,7 +139,7 @@ exports.getUserByUsername = (req, res) => {
         SELECT users.username, users.DOB, users.favGameId, users.mainGameID, users.skillLevel, users.timeZone, games.name, games.logo FROM squadup.users
         INNER JOIN squadup.games ON users.favGameId=games.id
              WHERE username = ?
-             ORDER BY FIELD (skillLevel, 'Beginner', 'Intermediate', 'Advanced')
+             ORDER BY FIELD (skillLevel, 'Bronze', 'Silver', 'Gold')
              ;`;
              
   const placeholders = [username];
@@ -306,7 +306,7 @@ exports.getPlayerInfoFromSquadList = (req, res) => {
   INNER JOIN squadup.games
     ON games.id=users.favGameId
       WHERE user1 = ?
-      ORDER BY FIELD (skillLevel, 'Beginner', 'Intermediate', 'Advanced')`
+      ORDER BY FIELD (skillLevel, 'Bronze', 'Silver', 'Gold')`
       ;
   const placeholders = [user2];
   // tell the daatabase to execute that script
@@ -340,7 +340,7 @@ exports.getImageFromGamesTable = (req, res) => {
         SELECT users.id, users.username, users.DOB, users.skillLevel, users.timeZone, users.mainGameID, games.logo, games.name FROM squadup.users
         INNER JOIN squadup.games ON users.favGameId=games.id
               WHERE username = ?
-              ORDER BY FIELD (skillLevel, 'Beginner', 'Intermediate', 'Advanced')
+              ORDER BY FIELD (skillLevel, 'Bronze', 'Silver', 'Gold')
               ;`;
   const placeholders = [username];
   // tell the daatabase to execute that script
@@ -370,9 +370,9 @@ exports.getImageFromGamesTable = (req, res) => {
 
 exports.createNewUser = async (req, res) => {
 
-  let { username, password, DOB, firstName, timeZone, skillLevel, favGameId, mainGameID } = req.body;
+  let { username, password, DOB, timeZone, skillLevel, favGameId, mainGameID } = req.body;
 
-  if (!username || !password || !DOB || !firstName || !timeZone || !skillLevel || !favGameId || !mainGameID) {
+  if (!username || !password || !DOB  || !timeZone || !skillLevel || !favGameId || !mainGameID) {
     res.status(400).send({
       message: "All fields required to create account"
     });
@@ -381,11 +381,11 @@ exports.createNewUser = async (req, res) => {
   const encryptedPassword = await bcrypt.hash(password, saltRounds)
 
   const query = `
-  INSERT INTO squadup.users (id, username, password, DOB, firstName, timeZone, skillLevel, favGameId, mainGameID)
+  INSERT INTO squadup.users (id, username, password, DOB, timeZone, skillLevel, favGameId, mainGameID)
   VALUES
-  (?, ?, ?, ?, ?, ?, ?, ?, ?);
+  (?, ?, ?, ?, ?, ?, ?, ?);
   `;
-  const placeholders = [uuid(), username, encryptedPassword, DOB, firstName, timeZone, skillLevel, favGameId, mainGameID];
+  const placeholders = [uuid(), username, encryptedPassword, DOB, timeZone, skillLevel, favGameId, mainGameID];
 
   db.query(query, placeholders, (err, results) => {
     if (err) {
@@ -491,7 +491,7 @@ exports.addNewFavorite = (req, res) => {
 }
 
 exports.updateUserInfo = (req, res) => {
-  let { id, username, firstName, timeZone, skillLevel, favGameId } = req.params;
+  let { id, username, timeZone, skillLevel, favGameId } = req.params;
 
   id = Number(id);
   const query = `
@@ -500,7 +500,7 @@ exports.updateUserInfo = (req, res) => {
 
   WHERE (id = ?);
   `;
-  const placeholders = [username, firstName, timeZone, skillLevel, favGameId];
+  const placeholders = [username, timeZone, skillLevel, favGameId];
   // tell the daatabase to execute that script
   db.query(query, placeholders, (err, results) => {
 

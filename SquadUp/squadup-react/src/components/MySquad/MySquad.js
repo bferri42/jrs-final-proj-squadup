@@ -30,35 +30,36 @@ export default function MySquad() {
         getPlayerInfoFromSquadList(user?.id)
     }, [])
 
-    if (favPlayers.length == 0) {
-        return (
-            <div className='no-squad-container'>
-                <h1>No Squad Members Yet!
-                    <br />
-                    <br />
-                    <FontAwesomeIcon icon={faFaceFrown} size="2x" />
-                </h1>
-            </div>
-        )
-    } else {
+    if (favPlayers.length > 0) {
         return (
             <div className="mysquad-root">
-
                 <h1 className='squad-title'>MY SQUAD</h1>
                 <div className='mysquad-cards-container'>
                     {favPlayers.map((player, i) => (
                         <PlayerCard key={i}
-
-                            {...player}
-                            isFav={true}
-                            favPlayers={favPlayers}
-                            setFavPlayers={setFavPlayers}
-                        />
-                    ))}
-                </div>
-
+                        {...player}
+                        isFav={true}
+                        favPlayers={favPlayers}
+                        setFavPlayers={setFavPlayers}
+                    />
+                ))}
             </div>
-        )
-    }
-
+        </div>
+    )
+} else {
+    return (
+        <div className='no-squad-container'>
+            <h1>No Squad Members Yet!
+                <br />
+                <br />
+                <FontAwesomeIcon icon={faFaceFrown} size="2x" />
+            </h1>
+        </div>
+    )
 }
+}
+
+
+
+
+

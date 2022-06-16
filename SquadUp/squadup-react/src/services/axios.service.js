@@ -50,8 +50,8 @@ function getImageFromGamesTable(username) {
     return axios.get(`${URL}/users/games/${username}`)
 }
 
-function createNewUser({ username, password, DOB, firstName, timeZone, skillLevel, favGameId, mainGameID }) {
-    return axios.post(`${URL}/users/signup`, { username, password, DOB, firstName, timeZone, skillLevel, favGameId, mainGameID })
+function createNewUser({ username, password, DOB, timeZone, skillLevel, favGameId, mainGameID }) {
+    return axios.post(`${URL}/users/signup`, { username, password, DOB, timeZone, skillLevel, favGameId, mainGameID })
 }
 
 function login({ username, password }) {

@@ -25,11 +25,13 @@
   }
   
   .no-squad-container{
-    margin-top: 10%;
     text-align: center;
     padding: 1.5rem;
+    border-radius: 15px;
+    width: fit-content;
+    margin: 5em auto;
     font-family: 'Press Start 2P', cursive;
-    height: 9em;
+    height: fit-content;
     background-color: var(--main-color);
     color: var(--secondary-color);
     backdrop-filter: blur(10px);

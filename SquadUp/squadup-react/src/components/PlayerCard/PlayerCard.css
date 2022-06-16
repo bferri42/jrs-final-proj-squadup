@@ -1,16 +1,16 @@
 .player-card-container {
-text-decoration: none;
-width: 14em;
-height: 14em;
-margin-top: 2em;
-margin-right: 20px;
-padding: 1rem;
-border-radius: 1rem;
-text-align: center;
-color: var(--tertiary-color);
-background-color: var(--main-color);
-font-family: 'Courier New', Courier, monospace;
-border: 2px var(--secondary-color) solid;
+    text-decoration: none;
+    width: 14em;
+    height: 14em;
+    margin-top: 2em;
+    margin-right: 20px;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    color: var(--tertiary-color);
+    background-color: var(--main-color);
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 10px;
 }
 
 .player-card-container h2 {
@@ -31,4 +31,15 @@ border: 2px var(--secondary-color) solid;
 .player-card-img {
     margin-top: 2.2em;
     width: 9em;
+}
+
+@media screen and (max-width : 390px) {
+    .player-card-root h2{
+        font-size: 12pt;
+        margin-top: 2em;
+    }
+
+    .player-card-root p{
+        font-size: 10pt;
+    }
 }

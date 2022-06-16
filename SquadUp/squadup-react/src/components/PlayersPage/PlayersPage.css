@@ -1,12 +1,25 @@
 
+/* .player-page-root {
+    position: relative;
+} */
+
 .player-page-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 11em auto;
-    padding: 5em;
-    gap: 10px;  
+    padding: 10em;
+    gap: 20px;  
     border-top: 4px var(--secondary-color) solid;
     background-color: var(--tertiary-color);
 }
+/* 
+.rank-filter {
+    margin-top: 5em;
+    width: 16em;
+    border-radius: 15px;
+    height: 2em;
+    font-size: 16pt;
+    
+} */

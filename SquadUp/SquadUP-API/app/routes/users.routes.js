@@ -27,7 +27,3 @@ module.exports = (app) => {
     app.delete("/api/users/favorite/:user1/:user2", users.deleteFavorite);
 };
 
-////search bar not staying highlighted
-////have to hit refresh to go to different buttons on search bar
-////no images on my squad or player card
-////ind player card has image but sometimes needs a refresh

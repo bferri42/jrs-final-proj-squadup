@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router';
 import { useLocalStorage } from '../../services/localstorage.service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBiohazard, faUser } from '@fortawesome/free-solid-svg-icons';
-import { faBattleNet } from '@fortawesome/free-brands-svg-icons';
 import ToastMessenger, { useToasts } from '../Toast/ToastService';
 import './UserLogin.css'
 

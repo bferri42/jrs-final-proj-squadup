@@ -4,24 +4,18 @@
   display: flex;
   justify-content: space-around;
   text-align: center;
-
   margin: auto;
-  margin-top: 25em;
-
+  margin-top: 23em;
   color: var(--main-color);
   align-items: center;
-  position: relative;
-
 }
 
 .search-bar .btn-group {
-  border: 5px var(--main-color) solid;
   place-items: center;
   background: var(--secondary-color);
   border-radius: 15px;
   color: inherit;
   white-space: nowrap;
-  /* font-size: 18pt; */
   display: flex;
   flex-direction: row;
   font-family: 'Rajdhani', sans-serif;
@@ -31,7 +25,6 @@
 .search-bar .btn-group .game {
   border: none;
   background: var(--secondary-color);
-  /* padding: .7rem; */
   cursor: pointer;
   font: inherit;
   font-weight: 900;
@@ -39,32 +32,29 @@
   width: 6.5em;
   height: 2em;
   font-size: 22pt;
-
 }
 
 .btn-group .one {
-  border-radius: 15px 0 0 15px;
+  border-radius: 10px 0 0 10px;
 }
 
 .btn-group .three {
-  border-radius: 0 15px 15px 0;
-
+  border-radius: 0 10px 10px 0;
 }
 
 .search-bar .btn-group .game:active {
-  color: var(--main-color);  
+  color: var(--main-color);
 }
 
 .btn-group .game.one:focus {
   background-color: var(--main-color);
   color: var(--tertiary-color);
-  border-radius: 9px 0 0 9px;
+  border-radius: 10px 0 0 10px;
 }
 
 .btn-group .game.two:focus {
   background-color: var(--main-color);
   color: var(--tertiary-color);
-  /* border-radius: 9px; */
 }
 
 .btn-group .game.three:focus {
@@ -74,16 +64,16 @@
 }
 
 .btn-group .game:hover {
-  /* background-color: var(--main-color); */
   color: var(--tertiary-color);
-  /* border-radius: 9px; */
+}
+
+.rank-filter-root {
+  margin-top: 10em;
 }
 
 
 @media screen and (max-width: 600px) {
   .search-bar .btn-group .game {
-    font-size: 18pt;
+    font-size: 12pt;
   }
-} 
-
-
+}

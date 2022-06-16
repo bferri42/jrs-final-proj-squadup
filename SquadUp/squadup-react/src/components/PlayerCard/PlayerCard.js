@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import './PlayerCard.css'
 
-export default function PlayerCard({ id, username, img, skillLevel, logo }) {
+export default function PlayerCard({ username, skillLevel, logo }) {
 
 
   return (
