@@ -18,11 +18,12 @@ CREATE TABLE `squadup`.`users` (
   `id` VARCHAR(45) NOT NULL UNIQUE,
   `username` VARCHAR(45) NOT NULL UNIQUE,
   `password` VARCHAR(255) NOT NULL,
-  `firstName` VARCHAR(45) NOT NULL,
-  `favGameId` VARCHAR(45),
   `DOB` DATE NOT NULL, -- date of birth
-
   `timeZone` VARCHAR(45) NOT NULL, 
+  `skillLevel` VARCHAR(45) NOT NULL,
+  `favGameId` VARCHAR(45),
+  `mainGameId` VARCHAR(45)
+
 
   PRIMARY KEY (`id`),
 
@@ -30,20 +31,6 @@ CREATE TABLE `squadup`.`users` (
     REFERENCES `games`(`id`)
 );
 
-CREATE TABLE `squadup`.`played_games` (
-  `id` VARCHAR(45) NOT NULL UNIQUE,
-  `userId` VARCHAR(45) NOT NULL,
-  `gameId` VARCHAR(45) NOT NULL,
-  `skillLevel` VARCHAR(45),
-  `platform` VARCHAR(45),
-
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (`userId`) 
-    REFERENCES `users`(`id`),
-
-  FOREIGN KEY (`gameId`) 
-    REFERENCES `games`(`id`)
-);
 
 CREATE TABLE `squadup`.`matches` (
   `id` VARCHAR(45) UNIQUE NOT NULL AUTO_INCREMENT,
@@ -74,4 +61,3 @@ VALUES
 (uuid(), 'breadman', '$2b$10$iMyX37WXI.irjujp5qB1U.DEVLcpeud00gr05hcPWmdCl8Uowm.Ye', 'Bobby', '1982-03-04'),
 (uuid(), 'Zandoss', '$2b$10$yVw07CW9keupUvXAUh5YauPHQBy0mbCOSycbUC53zSV2bXCpYXVj2', 'Blaine', '1999-05-29'),
 (uuid(), 'RonJonSilver', '$2b$10$4OXTOhN8qteaACqsoAuMZ.a0n7kWwpNHVX/gmr/PRuYD6bUc0z/mC', 'Ronald', '1989-10-07');
--- TODO: make more of these rows with the passwords before overwriting the db to test the script again

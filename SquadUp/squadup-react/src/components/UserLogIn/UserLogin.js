@@ -5,7 +5,7 @@ import { useAxios } from '../../services/axios.service';
 import { useNavigate } from 'react-router';
 import { useLocalStorage } from '../../services/localstorage.service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBiohazard, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBiohazard } from '@fortawesome/free-solid-svg-icons';
 import ToastMessenger, { useToasts } from '../Toast/ToastService';
 import './UserLogin.css'
 
@@ -69,10 +69,10 @@ export default function UserLogin() {
   return (
     <form className="login-form"
       onSubmit={handleFormSubmit}>
-        <div className='login-title'>
-      <h1> Welcome to SQUAD UP! </h1>
-      <h2>Sign in to continue</h2>
-      <span className='log-in-icon'><FontAwesomeIcon icon={faBiohazard} size="2x"/></span>
+      <div className='login-title'>
+        <h1> Welcome to SQUAD UP! </h1>
+        <h2>Sign in to continue</h2>
+        <span className='log-in-icon'><FontAwesomeIcon icon={faBiohazard} size="2x" /></span>
       </div>
       <div className='login-input-container'>
         <div className='login-input'>
@@ -115,15 +115,13 @@ export default function UserLogin() {
         <br />
         <div className="cta-switch-container">
           <p>Not a member?</p>
-            <Link to="/signup" className='link'>
-              Sign up now
-            </Link>
+          <Link to="/signup" className='link'>
+            Sign up now
+          </Link>
         </div>
       </div>
       <ToastMessenger />
-
-
     </form>
-)
+  )
 }
 

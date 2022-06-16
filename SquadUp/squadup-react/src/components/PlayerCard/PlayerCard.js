@@ -1,8 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
-
-
-import './PlayerCard.css'
+import './PlayerCard.css';
 
 export default function PlayerCard({ username, skillLevel, logo }) {
 

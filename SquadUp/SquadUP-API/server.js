@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-//require("dotenv").config();
 
 const app = express();
 
@@ -16,7 +15,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 require("./app/index");
 require("./app/routes/users.routes")(app);
 require("./app/routes/games.routes")(app);
-require("./app/routes/friends.routes")(app);
 
 
 const PORT = process.env.PORT || 8080;

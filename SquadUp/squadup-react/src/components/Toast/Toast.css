@@ -1,4 +1,3 @@
-
 .toast-container {
     display: flex;
     flex-direction: column-reverse;
@@ -33,7 +32,6 @@
 
     right: 0.5rem;
     top: 0.25rem;
-
 }
 
 .toast-root.success .x-button:hover {
@@ -44,6 +42,7 @@
     animation-iteration-count: 1;
     transition: 0.5s;
 }
+
 .toast-root.warning .x-button:hover {
     color: orange;
     border-radius: 50%;
@@ -51,8 +50,8 @@
     animation: spin 1s;
     animation-iteration-count: 1;
     transition: 0.5s;
-
 }
+
 .toast-root.error .x-button:hover {
     color: rgb(226, 22, 22);
     border-radius: 50%;
@@ -60,8 +59,8 @@
     animation: spin 1s;
     animation-iteration-count: 1;
     transition: 0.5s;
-
 }
+
 .toast-root.info .x-button:hover {
     color: rgb(2, 2, 248);
     border-radius: 50%;
@@ -69,14 +68,11 @@
     animation: spin .5s;
     animation-iteration-count: 1;
     transition: 0.5s;
-
 }
 
 .toast-root .icon {
     display: flex;
-
     padding: 5px;
-
     align-items: center;
 }
 
@@ -168,6 +164,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -177,18 +174,22 @@
     0% {
         opacity: 0;
     }
+
     7% {
         opacity: 1;
 
     }
+
     75% {
         opacity: 1;
 
     }
+
     98% {
         opacity: 0;
 
     }
+
     100% {
         opacity: 0;
 
@@ -199,6 +200,7 @@
     from {
         transform: translateX(100%);
     }
+
     to {
         transform: translateX(0);
     }

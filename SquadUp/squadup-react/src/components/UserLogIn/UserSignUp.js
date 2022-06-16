@@ -2,14 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { useAxios } from '../../services/axios.service';
 import { useLocalStorage } from '../../services/localstorage.service';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBiohazard } from '@fortawesome/free-solid-svg-icons';
 import ToastMessenger, { useToasts } from '../Toast/ToastService';
-import logo from '../../images/logo.png'
 import './UserSignUp.css'
 
 export default function UserSignUp() {
-  // const squadLogo = [logo]
   const http = useAxios()
   const localStorageService = useLocalStorage()
   const navigate = useNavigate()
@@ -99,7 +95,6 @@ export default function UserSignUp() {
       <div className='sign-up-title'>
         <h1 className='signup-titleh1'>Welcome to SQUAD UP!</h1>
         <p>We need information to fill out your player card!</p>
-        {/* <span className='sign-up-icon'><FontAwesomeIcon icon={faBiohazard} size="2x" /></span> */}
       </div>
       <div className='input-container'>
         <div className='sign-up-input'>
@@ -158,8 +153,8 @@ export default function UserSignUp() {
             required
           />
         </div>
-        <div className='skillLevel-input'>
 
+        <div className='skillLevel-input'>
           <select
             type="skillLevel"
             name="skillLevel"
@@ -178,7 +173,6 @@ export default function UserSignUp() {
         </div>
 
         <div className='favGameId-input'>
-
           <select
             type="favGameId"
             name="favGameId"
@@ -207,11 +201,7 @@ export default function UserSignUp() {
             id="mainGameID"
             required
           />
-
-
         </div>
-
-
         <br />
         <button
           type="submit"

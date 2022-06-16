@@ -35,10 +35,8 @@ export default function PlayersPage({ }) {
     <div className='player-page-root'>
       <Title />
       <SearchBar />
-  
-      
+
       <div className='player-page-container'>
-        
         {players.map((player, i) => (
           <PlayerCard
             key={i}
@@ -48,7 +46,6 @@ export default function PlayersPage({ }) {
             {...players}
           />
         ))}
-    
       </div>
     </div>
   )

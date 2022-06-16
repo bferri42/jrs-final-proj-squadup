@@ -42,7 +42,6 @@ body {
 @media screen and (max-width : 390px) {
     .nav-bar-root button {
         font-size: 13pt;
-        /* display: none; */
       }
 }
 

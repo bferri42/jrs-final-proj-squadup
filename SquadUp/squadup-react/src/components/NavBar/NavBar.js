@@ -28,10 +28,10 @@ export default function NavBar() {
 
     const logoutButton = (
         <button className='nav-buttons' onClick={onLogoutClicked}>
-            Log out 
+            Log out
             <span className='fa-icon'><FontAwesomeIcon icon={faArrowRightFromBracket} /></span>
         </button>
-        
+
     )
 
     const signUpButton = (
@@ -71,7 +71,6 @@ export default function NavBar() {
                 {user ? '' : signUpButton}
                 {user ? '' : <span>|</span>}
                 {user ? logoutButton : loginButton}
-
             </div>
         </nav>
 

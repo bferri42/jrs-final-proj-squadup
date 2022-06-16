@@ -12,7 +12,6 @@
 .friend-button.add {
     background-color: var(--tertiary-color);
     border: none;
-    
 }
 
 .friend-button.undo {
@@ -30,6 +29,5 @@
 .friend-button.undo:hover {
     background-color: var(--tertiary-color);
     border: 1px solid var(--secondary-color);
-
 }
 

@@ -37,26 +37,26 @@ export default function MySquad() {
                 <div className='mysquad-cards-container'>
                     {favPlayers.map((player, i) => (
                         <PlayerCard key={i}
-                        {...player}
-                        isFav={true}
-                        favPlayers={favPlayers}
-                        setFavPlayers={setFavPlayers}
-                    />
-                ))}
+                            {...player}
+                            isFav={true}
+                            favPlayers={favPlayers}
+                            setFavPlayers={setFavPlayers}
+                        />
+                    ))}
+                </div>
             </div>
-        </div>
-    )
-} else {
-    return (
-        <div className='no-squad-container'>
-            <h1>No Squad Members Yet!
-                <br />
-                <br />
-                <FontAwesomeIcon icon={faFaceFrown} size="2x" />
-            </h1>
-        </div>
-    )
-}
+        )
+    } else {
+        return (
+            <div className='no-squad-container'>
+                <h1>No Squad Members Yet!
+                    <br />
+                    <br />
+                    <FontAwesomeIcon icon={faFaceFrown} size="2x" />
+                </h1>
+            </div>
+        )
+    }
 }
 
 

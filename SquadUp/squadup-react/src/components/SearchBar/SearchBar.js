@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import './SearchBar.css'
 
@@ -7,11 +7,6 @@ import './SearchBar.css'
 export default function SearchBar() {
 
 
-    const GAMES = [
-        'Warzone',
-        'Apex Legends',
-        'Fortnite'
-    ]
     const [players, setPlayers] = useState("Warzone");
     const navigate = useNavigate();
 
