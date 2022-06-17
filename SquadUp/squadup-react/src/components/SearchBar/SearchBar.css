@@ -5,7 +5,7 @@
   justify-content: space-around;
   text-align: center;
   margin: auto;
-  margin-top: 23em;
+  margin-top: 24em;
   color: var(--main-color);
   align-items: center;
 }
@@ -71,9 +71,20 @@
   margin-top: 10em;
 }
 
+.skill-options {
+  border: none;
+  background: white;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+  text-transform: capitalize;
+  width: 6.5em;
+  height: 2em;
+  font-size: 22pt;
+}
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 540px) {
   .search-bar .btn-group .game {
-    font-size: 12pt;
+    font-size: 13pt;
   }
 }

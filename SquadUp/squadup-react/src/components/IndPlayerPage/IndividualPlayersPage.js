@@ -46,13 +46,17 @@ export default function IndividualPlayersPage() {
 
   function isPlayerInSquad(id) {
     for (let i = 0; i < favPlayers.length; i++) {
-      if (id == favPlayers[i].user2) {
+      if (id === favPlayers[i].user2) {
         console.log(favPlayers)
         return true;
       }
     }
     return false;
   }
+
+  ///this is the only fix i can find for the 'add friend'
+  ///button not working sometimes unless page gets refreshed
+
 
 
   useEffect(() => {
@@ -85,10 +89,10 @@ export default function IndividualPlayersPage() {
                 isFav={isFav}
                 user1={user.id}
                 user2={player.id}
-                onHearted={() => {
+                onAdded={() => {
                   setIsFav(true)
                 }}
-                onUnhearted={() => {
+                onRemoved={() => {
                   setIsFav(false);
                 }}
               />
@@ -97,10 +101,10 @@ export default function IndividualPlayersPage() {
                   isFav={isFav}
                   user1={user.id}
                   user2={player.id}
-                  onHearted={() => {
+                  onAdded={() => {
                     setIsFav(true)
                   }}
-                  onUnhearted={() => {
+                  onRemoved={() => {
                     setIsFav(false);
                   }}
                 />
@@ -112,7 +116,7 @@ export default function IndividualPlayersPage() {
         <h1 className='player-name'>{player.username}</h1>
         <p className='ind-player-info'>Time zone: {player.timeZone}</p>
         <p className='ind-player-info'>Date of birth: {player.DOB}</p>
-        <p className='ind-player-info'>Skill Level: {player.skillLevel}</p>
+        <p className='ind-player-info'>Rank: {player.skillLevel}</p>
         <p className='ind-player-info'>Main Game: {player.name}</p>
         <p className='ind-player-info'>Game ID: {player.mainGameID}</p>
       </div>

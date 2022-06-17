@@ -39,9 +39,15 @@ body {
     margin-left: 5px;
 }
 
-@media screen and (max-width : 390px) {
+@media screen and (max-width : 610px) {
     .nav-bar-root button {
-        font-size: 13pt;
+        font-size: 12pt;
+        margin: 0;
+        padding: 5px;
+      }
+
+      .fa-icon {
+          display: none;
       }
 }
 

@@ -22,8 +22,8 @@ function getUserbyUsername(username) {
     return axios.get(`${URL}/users/${username}`)
 }
 
-function getUsersByskillLevel(skillLevel) {
-    return axios.get(`${URL}/users/rank/${skillLevel}`)
+function getUsersByskillLevelAndGame(favGameId, skillLevel) {
+    return axios.get(`${URL}/users/rank/${favGameId}/${skillLevel}`)
 }
 
 function getUsersByPlatform(platform) {
@@ -62,12 +62,9 @@ function addNewFavorite(user1, user2) {
     return axios.post(`${URL}/users/favorite`, {user1, user2})
 }
 
-// function getFriendRequests(user1) {
-//     return axios.get(`${URL}/users/requests/${user1}`)
-// }
-
-// NOTE -> CHANGED PARAMS TO BE OUT OF AN OBJECT 
-
+function editUserInfo({id, timeZone, skillLevel, favGameId, mainGameID}) {
+    return axios.put(`${URL}/users/`, {id, timeZone, skillLevel, favGameId, mainGameID})
+}
 
 function deletebyUserUsername(username) {
     return axios.delete(`${URL}/users/${username}`)
@@ -79,7 +76,8 @@ function deleteFavorite(user1, user2) {
 
 
 
-// -------ALL GAMES ROUTES----------------
+// -------ALL GAMES ROUTES----------------//
+
 function getAllGames() {
     return axios.get(`${URL}/games/`)
 }
@@ -89,24 +87,13 @@ function getGamesByName(name) {
 }
 
 
-//--------ALL FRIENDS ROUTES-------------
-function getFriendRequests(user1) {
-    return axios.get(`${URL}/friends/requests/${user1}`)
-}
-
-function deleteRequest(user1, user2) {
-    return axios.delete(`${URL}/friends/requests/${user1}/${user2}`)
-}
-
-
-
 const api = {
     getAllUsers,
     getUserById,
     getUsersByGame,
     getUsersAndImageByGame,
     getUserbyUsername,
-    getUsersByskillLevel,
+    getUsersByskillLevelAndGame,
     getUsersByPlatform,
     getUserFavoritesById,
     getAllUserFavorites,
@@ -114,14 +101,13 @@ const api = {
     createNewUser,
     login,
     addNewFavorite,
+    editUserInfo,
     deletebyUserUsername,
     deleteFavorite,
     getAllGames,
     getGamesByName,
     getPlayerInfoFromSquadList,
-    getImageFromGamesTable,
-    getFriendRequests,
-    deleteRequest
+    getImageFromGamesTable
 }
 
 function useAxios() {

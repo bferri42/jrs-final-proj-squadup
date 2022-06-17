@@ -38,7 +38,7 @@ export default function NavBar() {
         <button onClick={() => {
             navigate('/signup')
         }}>
-            <span className='fa-icon'>Sign up<FontAwesomeIcon icon={faUserPlus} /></span>
+            Sign up<span className='fa-icon'><FontAwesomeIcon icon={faUserPlus} /></span>
         </button>
     )
 
@@ -48,10 +48,11 @@ export default function NavBar() {
         </Link>
     )
 
-    const friendRequestsButton = (
-        <Link to={"/requests"}>
-            <button>Friend Requests</button>
-        </Link>
+    const editButton = (
+        <Link to={"/editinfo"}>
+        <button type='button'>Edit Profile<span className='fa-icon'><FontAwesomeIcon icon={faPeopleGroup} /></span></button>
+    </Link>
+        
     )
 
 
@@ -68,6 +69,8 @@ export default function NavBar() {
 
             </div>
             <div className='nav-bar-right'>
+                {user ? editButton : ''}
+                {user ? <span>|</span> : ''}
                 {user ? '' : signUpButton}
                 {user ? '' : <span>|</span>}
                 {user ? logoutButton : loginButton}

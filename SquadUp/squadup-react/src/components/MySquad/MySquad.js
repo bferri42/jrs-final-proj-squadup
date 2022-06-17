@@ -4,7 +4,9 @@ import { useLocalStorage } from '../../services/localstorage.service';
 import PlayerCard from '../PlayerCard/PlayerCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFaceFrown } from '@fortawesome/free-solid-svg-icons'
+import { faArrowsDownToPeople } from '@fortawesome/free-solid-svg-icons'
 import './MySquad.css'
+import Title from '../Title/Title';
 
 export default function MySquad() {
 
@@ -33,7 +35,9 @@ export default function MySquad() {
     if (favPlayers.length > 0) {
         return (
             <div className="mysquad-root">
-                <h1 className='squad-title'>MY SQUAD</h1>
+                <div className='title-container'>
+                    <div className='my-squad'>My Squad! <FontAwesomeIcon icon={faArrowsDownToPeople} size="2x" /></div>
+                </div>
                 <div className='mysquad-cards-container'>
                     {favPlayers.map((player, i) => (
                         <PlayerCard key={i}

@@ -7,7 +7,7 @@ module.exports = (app) => {
     app.get("/api/users/favGame/:favGame", users.getUsersByGame);
     app.get("/api/users/game/:favGameId", users.getUsersAndImageByGame);
     app.get("/api/users/:username", users.getUserByUsername);
-    app.get("/api/users/rank/:skillLevel", users.getUsersByskillLevel);
+    app.get("/api/users/rank/:favGameId/:skillLevel", users.getUsersByskillLevelAndGame);
     app.get("/api/users/platform/:platform", users.getUsersByPlatform);
     app.get("/api/users/favorites/:id", users.getUserFavoritesById);
     app.get("/api/users/favorites/squad/:user1", users.getSquadMembersByUserId);
@@ -19,8 +19,7 @@ module.exports = (app) => {
     app.post("/api/users/login", users.login);
     app.post("/api/users/favorite", users.addNewFavorite);
 
-
-    app.put("/api/users/updateinfo", users.updateUserInfo);
+    app.put("/api/users/", users.editUserInfo)
 
 
     app.delete("/api/users/:username", users.deleteUserByUsername);

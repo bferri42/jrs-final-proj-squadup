@@ -1,110 +1,21 @@
-.title-root {
-  display: block;
+.logo {
+  height: 17em;
+  width: 32em;
   position: absolute;
-  font-family: 'Press Start 2P', cursive;
-  top: 17em;
+  top: 28%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  height: auto;
-  font-size: 10pt;
-  text-align: center;
-  white-space: nowrap;
+  border-radius: 1rem;
 }
 
-.title-root span {
-  display: block;
-  position: relative;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 34pt;
-  -webkit-transform: translateZ(0) translate3D(0, 0, 0);
-  transform: translateZ(0) translate3D(0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  will-change: opacity;
-}
-
-.title-root .squadup-title {
-  color: #ffd9e2;
-  text-shadow: 0 0 0 transparent, 0 0 10px #ff003c, 0 0 20px rgba(255, 0, 60, 0.5), 0 0 40px #ff003c, 0 0 100px #ff003c, 0 0 200px #ff003c, 0 0 300px #ff003c, 0 0 500px #ff003c, 0 0 1000px #ff003c;
-  -webkit-animation: blink 4s infinite alternate;
-  animation: blink 4s infinite alternate;
-}
-
-.title-root .squadup-slogan {
-  font-size: 20pt;
-  color: #d1f4d8;
-  text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 100px #2695ff, 0 0 200px #2695ff, 0 0 300px #2695ff, 0 0 500px #2695ff;
-  -webkit-animation: buzz 0.01s infinite alternate;
-  animation: buzz 0.01s infinite alternate;
-}
-
-@-webkit-keyframes buzz {
-  70% {
-    opacity: 0.80;
-  }
-}
-
-@keyframes buzz {
-  70% {
-    opacity: 0.80;
-  }
-}
-
-@-webkit-keyframes blink {
-  40% {
-    opacity: 1;
-  }
-
-  42% {
-    opacity: 0.8;
-  }
-
-  43% {
-    opacity: 1;
-  }
-
-  45% {
-    opacity: 0.2;
-  }
-
-  46% {
-    opacity: 1;
-  }
-}
-
-@keyframes blink {
-  40% {
-    opacity: 1;
-  }
-
-  42% {
-    opacity: 0.8;
-  }
-
-  43% {
-    opacity: 1;
-  }
-
-  45% {
-    opacity: 0.2;
-  }
-
-  46% {
-    opacity: 1;
-  }
-}
-
-@media screen and (max-width: 390px) {
-
-  .title-root .squadup-title {
-    font-size: 26pt;
-  }
-}
-
-@media screen and (max-width: 800px) {
-
-  .title-root .squadup-slogan {
-    display: none;
+@media screen and (max-width: 440px) {
+.logo-root .logo {
+height: 17em;
+width: 22em;
+position: absolute;
+top: 15em;
+left: 50%;
+transform: translate(-50%, -50%);
+border-radius: 1rem;
   }
 }

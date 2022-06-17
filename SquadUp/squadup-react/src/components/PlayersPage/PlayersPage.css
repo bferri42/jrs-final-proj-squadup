@@ -1,12 +1,39 @@
+.player-page-root {
+    position: relative;
+}
+
 .player-page-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin: 11em auto;
-    padding: 10em;
+    padding: 6em 10em;
     gap: 20px;  
-    border-top: 4px var(--secondary-color) solid;
     background-color: var(--tertiary-color);
 }
 
+.search {
+    position: absolute;
+    top: -16em;
+}
+
+.logo1 {
+    height: 17em;
+    width: 32em;
+    position: absolute;
+    top: -12em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 440px) {
+    .logo1 {
+height: 16em;
+width: 22em;
+position: absolute;
+top: -12em;
+left: 50%;
+transform: translate(-50%, -50%);
+border-radius: 1rem;
+    }
+}

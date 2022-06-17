@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const { v4: uuid } = require('uuid');
 const saltRounds = 10;
 
+//------------ALL USER GET REQUESTS------------//
 
 exports.getAllUsers = (req, res) => {
   const query = `SELECT * FROM squadup.users;`;
@@ -35,18 +36,12 @@ exports.getAllUsers = (req, res) => {
 
 exports.getUserById = (req, res) => {
   const id = req.params.id;
-  //const {id} = req.params; also works
   const query = `
         SELECT * FROM squadup.users
              WHERE id = ?
              ;`;
   const placeholders = [id];
-  // tell the daatabase to execute that script
   db.query(query, placeholders, (err, results) => {
-    // this code will exectue when the database responds
-    // 3 possible cases: 404 - Nothing Found
-    //                       - whole error
-    //                       - Success
     if (err) {
       res.status(500).send({
         message: "There was an error getting any users.",
@@ -67,18 +62,12 @@ exports.getUserById = (req, res) => {
 
 exports.getUsersByGame = (req, res) => {
   const favGame = req.params.favGame;
-  //const {id} = req.params; also works
   const query = `
         SELECT * FROM squadup.users
              WHERE favGame = ?
              ;`;
   const placeholders = [favGame];
-  // tell the daatabase to execute that script
   db.query(query, placeholders, (err, results) => {
-    // this code will exectue when the database responds
-    // 3 possible cases: 404 - Nothing Found
-    //                       - whole error
-    //                       - Success
     if (err) {
       res.status(500).send({
         message: "There was an error getting any users with that favorite game.",
@@ -98,8 +87,7 @@ exports.getUsersByGame = (req, res) => {
 };
 
 exports.getUsersAndImageByGame = (req, res) => {
-  const {favGameId} = req.params;
-  //const {id} = req.params; also works
+  const { favGameId } = req.params;
   const query = `
         SELECT * FROM squadup.users
         INNER JOIN squadup.games ON users.favGameId=games.id
@@ -107,12 +95,7 @@ exports.getUsersAndImageByGame = (req, res) => {
              ORDER BY FIELD (skillLevel, 'Bronze', 'Silver', 'Gold')
              ;`;
   const placeholders = [favGameId];
-  // tell the daatabase to execute that script
   db.query(query, placeholders, (err, results) => {
-    // this code will exectue when the database responds
-    // 3 possible cases: 404 - Nothing Found
-    //                       - whole error
-    //                       - Success
     if (err) {
       res.status(500).send({
         message: "There was an error getting any users with that favorite game.",
@@ -134,21 +117,15 @@ exports.getUsersAndImageByGame = (req, res) => {
 
 exports.getUserByUsername = (req, res) => {
   const username = req.params.username;
-  //const {id} = req.params; also works
   const query = `
         SELECT users.username, users.DOB, users.favGameId, users.mainGameID, users.skillLevel, users.timeZone, games.name, games.logo FROM squadup.users
         INNER JOIN squadup.games ON users.favGameId=games.id
              WHERE username = ?
              ORDER BY FIELD (skillLevel, 'Bronze', 'Silver', 'Gold')
              ;`;
-             
+
   const placeholders = [username];
-  // tell the daatabase to execute that script
   db.query(query, placeholders, (err, results) => {
-    // this code will exectue when the database responds
-    // 3 possible cases: 404 - Nothing Found
-    //                       - whole error
-    //                       - Success
     if (err) {
       res.status(500).send({
         message: "There was an error getting any users.",
@@ -167,20 +144,21 @@ exports.getUserByUsername = (req, res) => {
   });
 };
 
-exports.getUsersByskillLevel = (req, res) => {
-  const skillLevel = req.params.skillLevel;
-  //const {id} = req.params; also works
+exports.getUsersByskillLevelAndGame = (req, res) => {
+  const { skillLevel, favGameId } = req.params;
+  // const query = `
+  // SELECT users.id, users.username, users.DOB, users.skillLevel, users.timeZone, users.mainGameID, games.logo, games.name FROM squadup.users
+  // INNER JOIN squadup.games ON users.favGameId=games.id
+  //       WHERE username = ?
+  //       ORDER BY FIELD (skillLevel, 'Bronze', 'Silver', 'Gold')
+  //       ;`;
   const query = `
-        SELECT * FROM squadup.played_games
+        SELECT * FROM squadup.users
              WHERE skillLevel = ?
+             AND favGameId = ?
              ;`;
-  const placeholders = [skillLevel];
-  // tell the daatabase to execute that script
+  const placeholders = [skillLevel, favGameId];
   db.query(query, placeholders, (err, results) => {
-    // this code will exectue when the database responds
-    // 3 possible cases: 404 - Nothing Found
-    //                       - whole error
-    //                       - Success
     if (err) {
       res.status(500).send({
         message: "There was an error getting any users.",
@@ -201,18 +179,12 @@ exports.getUsersByskillLevel = (req, res) => {
 
 exports.getUsersByPlatform = (req, res) => {
   const platform = req.params.platform;
-  //const {id} = req.params; also works
   const query = `
         SELECT * FROM squadup.played_games
              WHERE platform = ?
              ;`;
   const placeholders = [platform];
-  // tell the daatabase to execute that script
   db.query(query, placeholders, (err, results) => {
-    // this code will exectue when the database responds
-    // 3 possible cases: 404 - Nothing Found
-    //                       - whole error
-    //                       - Success
     if (err) {
       res.status(500).send({
         message: "There was an error getting any users.",
@@ -233,18 +205,12 @@ exports.getUsersByPlatform = (req, res) => {
 
 exports.getUserFavoritesById = (req, res) => {
   const id = req.params.id;
-  //const {id} = req.params; also works
   const query = `
         SELECT * FROM squadup.matches
              WHERE id = ?
              ;`;
   const placeholders = [id];
-  // tell the daatabase to execute that script
   db.query(query, placeholders, (err, results) => {
-    // this code will exectue when the database responds
-    // 3 possible cases: 404 - Nothing Found
-    //                       - whole error
-    //                       - Success
     if (err) {
       res.status(500).send({
         message: "There was an error getting any users.",
@@ -265,18 +231,12 @@ exports.getUserFavoritesById = (req, res) => {
 
 exports.getSquadMembersByUserId = (req, res) => {
   const user1 = req.params.user1;
-  //const {id} = req.params; also works
   const query = `
         SELECT user2 FROM squadup.matches
              WHERE user1 = ?
              ;`;
   const placeholders = [user1];
-  // tell the daatabase to execute that script
   db.query(query, placeholders, (err, results) => {
-    // this code will exectue when the database responds
-    // 3 possible cases: 404 - Nothing Found
-    //                       - whole error
-    //                       - Success
     if (err) {
       res.status(500).send({
         message: "There was an error getting any users.",
@@ -307,14 +267,9 @@ exports.getPlayerInfoFromSquadList = (req, res) => {
     ON games.id=users.favGameId
       WHERE user1 = ?
       ORDER BY FIELD (skillLevel, 'Bronze', 'Silver', 'Gold')`
-      ;
+    ;
   const placeholders = [user2];
-  // tell the daatabase to execute that script
   db.query(query, placeholders, (err, results) => {
-    // this code will exectue when the database responds
-    // 3 possible cases: 404 - Nothing Found
-    //                       - whole error
-    //                       - Success
     if (err) {
       res.status(500).send({
         message: "There was an error getting any users.",
@@ -343,12 +298,7 @@ exports.getImageFromGamesTable = (req, res) => {
               ORDER BY FIELD (skillLevel, 'Bronze', 'Silver', 'Gold')
               ;`;
   const placeholders = [username];
-  // tell the daatabase to execute that script
   db.query(query, placeholders, (err, results) => {
-    // this code will exectue when the database responds
-    // 3 possible cases: 404 - Nothing Found
-    //                       - whole error
-    //                       - Success
     if (err) {
       res.status(500).send({
         message: "There was an error getting any users.",
@@ -367,12 +317,13 @@ exports.getImageFromGamesTable = (req, res) => {
   });
 };
 
+//-----------ALL POST REQUESTS------------//
 
 exports.createNewUser = async (req, res) => {
 
   let { username, password, DOB, timeZone, skillLevel, favGameId, mainGameID } = req.body;
 
-  if (!username || !password || !DOB  || !timeZone || !skillLevel || !favGameId || !mainGameID) {
+  if (!username || !password || !DOB || !timeZone || !skillLevel || !favGameId || !mainGameID) {
     res.status(400).send({
       message: "All fields required to create account"
     });
@@ -459,11 +410,6 @@ exports.addNewFavorite = (req, res) => {
 
   let { user1, user2 } = req.body;
 
-  const query = `
-      INSERT INTO squadup.matches (user1, user2)
-      VALUES
-      (?, ?);
-  `;
   if (!user1 || !user2) {
     res.status(400).send({
       message: 'Must include user1 and user2.'
@@ -471,6 +417,11 @@ exports.addNewFavorite = (req, res) => {
     return;
   }
 
+  const query = `
+      INSERT INTO squadup.matches (user1, user2)
+      VALUES
+      (?, ?);
+  `;
 
   const placeholders = [user1, user2];
 
@@ -487,31 +438,37 @@ exports.addNewFavorite = (req, res) => {
       })
     }
   });
-
 }
 
-exports.updateUserInfo = (req, res) => {
-  let { id, username, timeZone, skillLevel, favGameId } = req.params;
+exports.editUserInfo = (req, res) => {
 
-  id = Number(id);
+  let { id, timeZone, skillLevel, favGameId, mainGameID } = req.body;
+
   const query = `
-  UPDATE squadup.users
-  SET 
+    UPDATE squadup.users
+    SET
+    timeZone = ?,
+    skillLevel = ?,
+    favGameId = ?,
+    mainGameID = ?
+    WHERE (id = ?);
+    `;
 
-  WHERE (id = ?);
-  `;
-  const placeholders = [username, timeZone, skillLevel, favGameId];
-  // tell the daatabase to execute that script
+  const placeholders = [timeZone, skillLevel, favGameId, mainGameID, id];
+
   db.query(query, placeholders, (err, results) => {
-
     if (err) {
       res.status(500).send({
-        message: "There was an error updating your information.",
+        message: "There was an error editing this user's info.",
         error: err,
+      });
+    } else if (results.affectedRows == 0) {
+      res.status(404).send({
+        message: "Error 404",
       });
     } else {
       res.send({
-        message: "You have been successfully deleted!",
+        message: "Your information has been updated successfully!",
       });
     }
   });
@@ -519,18 +476,12 @@ exports.updateUserInfo = (req, res) => {
 
 exports.deleteUserByUsername = (req, res) => {
   let { username } = req.params;
-  // id = Number(id);
   const query = `
           DELETE FROM squadup.users
                WHERE (username = ?)
                `;
   const placeholders = [username];
-  // tell the daatabase to execute that script
   db.query(query, placeholders, (err, results) => {
-    // this code will exectue when the database responds
-    // 3 possible cases: 404 - Nothing Found
-    //                       - whole error
-    //                       - Success
     if (err) {
       res.status(500).send({
         message: "There was an error deleting this soldier.",

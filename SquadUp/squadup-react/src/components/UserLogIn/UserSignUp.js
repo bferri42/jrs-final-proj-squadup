@@ -165,7 +165,7 @@ export default function UserSignUp() {
             id="skillLevel"
             required>
 
-            <option value="">Skill Level</option>
+            <option value="">Rank</option>
             <option value="Bronze">Bronze</option>
             <option value="Silver">Silver</option>
             <option value="Gold">Gold</option>

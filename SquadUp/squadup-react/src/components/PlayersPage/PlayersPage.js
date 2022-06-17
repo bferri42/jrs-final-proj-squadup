@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useAxios } from '../../services/axios.service';
 import { useParams } from 'react-router-dom'
-import './PlayersPage.css'
 import PlayerCard from '../PlayerCard/PlayerCard';
 import SearchBar from '../SearchBar/SearchBar';
-import Title from '../Title/Title';
+import logo from '../../images/logo.png';
+import './PlayersPage.css'
+
 
 
 export default function PlayersPage({ }) {
@@ -30,10 +31,12 @@ export default function PlayersPage({ }) {
     getUsersAndImageByGame(id);
   })
 
-
+  
   return (
     <div className='player-page-root'>
-      <Title />
+      {/* <Title /> */}
+      <img className='logo1' src={logo} />
+
       <SearchBar />
 
       <div className='player-page-container'>

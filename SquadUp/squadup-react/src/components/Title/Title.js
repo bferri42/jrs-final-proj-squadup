@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import logo from '../../images/logo.png'
+
 import './Title.css'
 
 export default function Title() {
   return (
-    <div className="title-root">
-    <span className="squadup-title">SQUAD UP!</span><br />
-    <span className="squadup-slogan">Your Battle Royale Squad Finder</span>
-  </div>    
+    <div className='logo-root'>
+      <img className='logo' src={logo} />
+    </div>
   )
 }

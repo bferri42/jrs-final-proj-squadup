@@ -5,13 +5,13 @@ export default function Friend({ isFav, onFavoriteClicked, onUnfavoriteClicked }
 
 
     const outlinedAddFriend = (
-        <div className='heart-container empty'
+        <div className='friend-container empty'
             onClick={onFavoriteClicked} >
            <button className='friend-button add'>Add Friend</button>
         </div>)
 
     const solidAddFriend = (
-        <div className='heart-container solid'
+        <div className='friend-container solid'
             onClick={onUnfavoriteClicked} >
                   <button className='friend-button undo'>Remove</button>
 

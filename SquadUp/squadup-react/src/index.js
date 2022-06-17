@@ -10,6 +10,7 @@ import UserSignUp from './components/UserLogIn/UserSignUp'
 import PlayersPage from './components/PlayersPage/PlayersPage'
 import IndividualPlayersPage from './components/IndPlayerPage/IndividualPlayersPage'
 import MySquad from './components/MySquad/MySquad';
+import EditProfile from './components/EditProfile/EditProfile';
 import { ToastProvider } from "./components/Toast/ToastService";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -25,6 +26,7 @@ root.render(
         <Route path="/players/" element={<PlayersPage />}></Route>
         <Route path="/players/:id" element={<PlayersPage />}></Route>
         <Route path='/mysquad' element={<MySquad />}></Route>
+        <Route path="/editinfo" element={<EditProfile />}></Route>
         <Route path="/player/:username" element={<IndividualPlayersPage />}></Route>
         <Route path="*" element={<div>404 - page does not exist</div>}></Route>
       </Routes>
