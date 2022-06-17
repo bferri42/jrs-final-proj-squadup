@@ -54,9 +54,6 @@ export default function IndividualPlayersPage() {
     return false;
   }
 
-  ///this is the only fix i can find for the 'add friend'
-  ///button not working sometimes unless page gets refreshed
-
 
 
   useEffect(() => {

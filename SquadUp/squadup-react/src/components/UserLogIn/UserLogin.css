@@ -56,10 +56,12 @@ input:focus::placeholder {
 @media screen and (max-width: 390px) {
 
   .login-form {
-    width: 20em;
+    width: 22.6em;
+    height: fit-content;
+    padding-bottom: 3em;
   }
 
   .login-form input {
-    width: 17em;
+    width: 15em;
   }
 }

@@ -17,7 +17,6 @@ export default function UserSignUp() {
   const skillLevelRef = useRef(null);
   const favGameIdRef = useRef(null);
   const mainGameIDRef = useRef(null);
-  const timeoutRef = useRef(null);
 
   function editInfo(updateForm) {
     http.editUserInfo(updateForm)
