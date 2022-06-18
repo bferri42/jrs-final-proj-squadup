@@ -25,7 +25,9 @@ export default function AddFriend({ isFav, user1, user2, onAdded, onRemoved }) {
                 console.log(user1, user2)
                 console.log(results.data)
             })
-            .catch((error) => console.log(error.response.request.response));
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     function onUnfavoriteClicked() {
