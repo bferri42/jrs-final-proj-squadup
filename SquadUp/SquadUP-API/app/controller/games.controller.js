@@ -45,12 +45,12 @@ exports.getGamesByName = (req, res) => {
     //                       - Success
     if (err) {
       res.status(500).send({
-        message: "There was an error getting any users.",
+        message: "There was an error getting any games.",
         error: err,
       });
     } else if (results.length == 0) {
       res.status(404).send({
-        message: "No users found",
+        message: "No games found.",
       });
     } else {
       res.send({

@@ -239,7 +239,7 @@ exports.getSquadMembersByUserId = (req, res) => {
   db.query(query, placeholders, (err, results) => {
     if (err) {
       res.status(500).send({
-        message: "There was an error getting any users.",
+        message: "There was an error getting any squad members.",
         error: err,
       });
     } else if (results.length == 0) {
@@ -301,12 +301,12 @@ exports.getImageFromGamesTable = (req, res) => {
   db.query(query, placeholders, (err, results) => {
     if (err) {
       res.status(500).send({
-        message: "There was an error getting any users.",
+        message: "There was an error getting any images.",
         error: err,
       });
     } else if (results.length == 0) {
       res.status(404).send({
-        message: "No squad members found.",
+        message: "No images found.",
       });
     } else {
       res.send({
@@ -528,9 +528,3 @@ exports.deleteFavorite = (req, res) => {
     }
   });
 }
-
-
-
-// create friend request
-// 'delete' friend request -> decline
-// 'delete' friend request -> accept -> and create 'match'
