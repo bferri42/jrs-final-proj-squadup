@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useAxios } from '../../services/axios.service'
+import { useLocalStorage } from '../../services/localstorage.service';
 import ToastMessenger, { useToasts } from '../Toast/ToastService';
 
 import Friend from './Friend'
@@ -8,6 +9,8 @@ export default function AddFriend({ isFav, user1, user2, onAdded, onRemoved }) {
 
     const http = useAxios();
     const toast = useToasts();
+    const localStorageService = useLocalStorage();
+    const user = localStorageService.getUser();
 
 
     //this function works 90% of the time
@@ -45,6 +48,13 @@ export default function AddFriend({ isFav, user1, user2, onAdded, onRemoved }) {
                 console.error(err);
             })
     }
+
+    useEffect(() => {
+        var user = localStorageService.getUser();
+        onFavoriteClicked(user?.id)
+    }, [])
+
+
 
 
 
