@@ -58,19 +58,25 @@ return (
       <p>We need information to update your player card!</p>
     </div>
     <div className='input-container'>
-      <div className='TZ-input'>
-        <input
-          type="timeZone"
-          name="timeZone"
-          value={updateForm.timeZone}
-          onChange={handleChange}
-          ref={timeZoneRef}
-          placeholder="Time Zone"
-          id="timeZone"
-          required
-        />
-      </div>
-
+    <div className='TZ-input'>
+          <select
+            type="timeZone"
+            name="timeZone"
+            value={updateForm.timeZone}
+            onChange={handleChange}
+            ref={timeZoneRef}
+            placeholder="Time Zone"
+            id="timeZone"
+            required>
+            
+            <option value="">Time Zone</option>
+            <option value="ET">ET</option>
+            <option value="CT">CT</option>
+            <option value="MT">MT</option>
+            <option value="PT">PT</option>
+            </select>
+          
+        </div>
       <div className='skillLevel-input'>
         <select
           type="skillLevel"

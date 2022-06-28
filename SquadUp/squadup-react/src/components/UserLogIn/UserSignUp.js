@@ -142,7 +142,7 @@ export default function UserSignUp() {
         </div>
 
         <div className='TZ-input'>
-          <input
+          <select
             type="timeZone"
             name="timeZone"
             value={formData.timeZone}
@@ -150,8 +150,15 @@ export default function UserSignUp() {
             ref={timeZoneRef}
             placeholder="Time Zone"
             id="timeZone"
-            required
-          />
+            required>
+            
+            <option value="">Time Zone</option>
+            <option value="ET">ET</option>
+            <option value="CT">CT</option>
+            <option value="MT">MT</option>
+            <option value="PT">PT</option>
+            </select>
+          
         </div>
 
         <div className='skillLevel-input'>
